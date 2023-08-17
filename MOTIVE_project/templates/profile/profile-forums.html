@@ -1,0 +1,168 @@
+{% include 'common/nav-main-page.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+<style>
+    .topic-forum-item{
+        margin-top: 7.4rem;
+        font-size: 0.8rem;
+    }
+</style>
+
+<body>
+
+    <div class="banner-bottom-w3layouts py-lg-5 py-3">
+        <div class="container">
+            <div class="inner-sec-w3ls-agileits py-lg-5 py-3">
+                <h4 class="sub-tittle text-uppercase text-center">форуми, на които съм</h4>
+                <h3 class="tittle text-center mb-lg-5 mb-3">
+                    Участник</h3>
+
+                <ul class="grid cs-style-5 row">
+
+                    {% for forum in forums_participated %}
+                         <li class="grid-info-img">
+                            <figure>
+                                <img src="{% static 'images/forum-item.avif' %}" class="img-fluid" alt="img03">
+                                <figcaption>
+                                    <h3 style="font-size: 1rem">{{ forum.forum.name }}</h3>
+                                    <p class="topic-forum-item">{{ forum.forum.topic.name }}</p>
+    {#                                <span>{{ forum.forum.members.count }}</span>#}
+                                    <a href="{% url 'forum details' forum.forum_id %}">Покажи</a>
+                                </figcaption>
+                            </figure>
+                        </li>
+                    {% endfor %}
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+        <div class="banner-bottom-w3layouts py-lg-5 py-3">
+        <div class="container">
+            <div class="inner-sec-w3ls-agileits py-lg-5 py-3">
+                <h4 class="sub-tittle text-uppercase text-center">форуми, на които съм</h4>
+                <h3 class="tittle text-center mb-lg-5 mb-3">
+                    Автор</h3>
+                <ul class="grid cs-style-5 row">
+
+                    {% for forum in user_forums_created %}
+                         <li class="grid-info-img">
+                            <figure>
+                                <img src="{% static 'images/forum-item.avif' %}" class="img-fluid" alt="img03">
+                                <figcaption>
+                                    <h3 style="font-size: 1rem">{{ forum.name }}</h3>
+                                    <p class="topic-forum-item">{{ forum.topic }}</p>
+    {#                                <span>{{ forum.forum.members.count }}</span>#}
+                                    <a href="{% url 'forum details' forum.id %}">Покажи</a>
+                                </figcaption>
+                            </figure>
+                        </li>
+                    {% endfor %}
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{#    <div class="banner-bottom-w3layouts py-lg-5 py-3">#}
+{#        <div class="container">#}
+{#            <div class="inner-sec-w3ls-agileits py-lg-5 py-3">#}
+{#                <h4 class="sub-tittle text-uppercase text-center">някакъв текст</h4>#}
+{#                <h3 class="tittle text-center mb-lg-5 mb-3">#}
+{#                    форуми, които е създал</h3>#}
+{#                <ul class="grid cs-style-5 row">#}
+{##}
+{#                     {% for forum in user_forums_created %}#}
+{##}
+{#                         <li class="grid-info-img">#}
+{#                            <figure>#}
+{#                                <img src="{% static 'images/forum-item.avif' %}" class="img-fluid" alt="img03">#}
+{#                                <figcaption>#}
+{#                                    <h3>{{ forum.name }}</h3>#}
+{#                                    <span>{{ forum.topic.name }}</span>#}
+{#                                    <a href="{% url 'forum details' forum.id %}">Покажи</a>#}
+{#                                </figcaption>#}
+{#                            </figure>#}
+{#                        </li>#}
+{##}
+{#                    {% endfor %}#}
+{##}
+{##}
+{##}
+{##}
+{#                    <li class="grid-info-img">#}
+{#                        <figure>#}
+{#                            <img src="{% static 'images/forum-item.avif' %}" class="img-fluid" alt="img03">#}
+{#                            <figcaption>#}
+{#                                <h3>Berries</h3>#}
+{#                                <span>Lorem ipsum </span>#}
+{#                                <a href="gallery.html">Gallery</a>#}
+{#                            </figcaption>#}
+{#                        </figure>#}
+{#                    </li>#}
+{#                    <li class="grid-info-img">#}
+{#                        <figure>#}
+{#                            <img src="{% static 'images/forum-item.avif' %}" class="img-fluid" alt="img03">#}
+{#                            <figcaption>#}
+{#                                <h3>Organic Dairy</h3>#}
+{#                                <span>Lorem ipsum </span>#}
+{#                                <a href="gallery.html">Gallery</a>#}
+{#                            </figcaption>#}
+{#                        </figure>#}
+{#                    </li>#}
+{#                    <li class="grid-info-img">#}
+{#                        <figure>#}
+{#                            <img src="{% static 'images/forum-item.avif' %}" class="img-fluid" alt="img03">#}
+{#                            <figcaption>#}
+{#                                <h3>Seeds</h3>#}
+{#                                <span>Lorem ipsum </span>#}
+{#                                <a href="gallery.html">Gallery</a>#}
+{#                            </figcaption>#}
+{#                        </figure>#}
+{#                    </li>#}
+{#                    <li class="grid-info-img">#}
+{#                        <figure>#}
+{#                            <img src="{% static 'images/forum-item.avif' %}" class="img-fluid" alt="img03">#}
+{#                            <figcaption>#}
+{#                                <h3>Herbs</h3>#}
+{#                                <span>Jacob Cummings</span>#}
+{#                                <a href="gallery.html">Gallery</a>#}
+{#                            </figcaption>#}
+{#                        </figure>#}
+{#                    </li>#}
+{#                    <li class="grid-info-img">#}
+{#                        <figure>#}
+{#                            <img src="{% static 'images/forum-item.avif' %}" class="img-fluid" alt="img03">#}
+{#                            <figcaption>#}
+{#                                <h3>Farm</h3>#}
+{#                                <span>Lorem ipsum </span>#}
+{#                                <a href="gallery.html">Gallery</a>#}
+{#                            </figcaption>#}
+{#                        </figure>#}
+{#                    </li>#}
+{##}
+{#                </ul>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+
+
+{% include 'common/js-footer-main-page.html' %}
+</body>

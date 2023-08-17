@@ -1,0 +1,5 @@
+<form action="{% url 'forum rate' pk=pk %}" method="post">
+    {% csrf_token %}
+    {{ form.rating }}
+    <button>Submit</button>
+</form>

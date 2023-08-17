@@ -1,0 +1,170 @@
+{% include 'common/nav-main-page.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+<style>
+    #feature{
+        padding-top: 0;
+        background-color: #fef5db !important;
+    }
+    #hero-title{
+        font-size: 2.5rem;
+    }
+</style>
+
+<body>
+
+    <div class="mian-content">
+
+
+        {#  </HE>RO IMG-S SLIDERS  #}
+        <div class="slide-window">
+            <div class="slide-wrapper" style="width:300%;">
+                <div class="slide">
+                    <div class="slide-caption text-center">
+                        <p class="text-uppercase">MOTIVE</p>
+                        <h3 id="hero-title" class="text-uppercase">ИНОВАТИВЕН ФОРУМ</h3>
+                        <div class="cont-btn">
+                        {% if request.user.is_authenticated %}
+                            <a class="btn text-uppercase" href="{% url 'forum show all' %}">форуми</a>
+                            {% else %}
+                            <a class="btn text-uppercase" href="{% url 'user register' %}">включи се</a>
+                        {% endif %}
+                        </div>
+
+                    </div>
+                </div>
+                <div class="slide slide2">
+                    <div class="slide-caption text-center">
+                        <p class="text-uppercase">MOTIVE</p>
+                        <h3 id="hero-title" class="text-uppercase">ГОРЕЩИ ТЕМИ</h3>
+                        <div class="cont-btn">
+                        {% if request.user.is_authenticated %}
+                            <a class="btn text-uppercase" href="{% url 'forum show all' %}">форуми</a>
+                            {% else %}
+                            <a class="btn text-uppercase" href="{% url 'user register' %}">включи се</a>
+                        {% endif %}
+                        </div>
+
+                    </div>
+                </div>
+                <div class="slide slide3">
+                    <div class="slide-caption text-center">
+                        <p class="text-uppercase">MOTIVE</p>
+                        <h3 id="hero-title" class="text-uppercase">ИНОВАТИВЕН ФОРУМ</h3>
+                        <div class="cont-btn">
+                        {% if request.user.is_authenticated %}
+                            <a class="btn text-uppercase" href="{% url 'forum show all' %}">форуми</a>
+                            {% else %}
+                            <a class="btn text-uppercase" href="{% url 'user register' %}">включи се</a>
+                        {% endif %}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="slide-controller">
+                <div class="slide-control-left">
+                    <div class="slide-control-line"></div>
+                    <div class="slide-control-line"></div>
+                </div>
+                <div class="slide-control-right">
+                    <div class="slide-control-line"></div>
+                    <div class="slide-control-line"></div>
+                </div>
+            </div>
+        </div>
+        <!-- main image slider container -->
+    </div>
+    <!-- end of main image slider container -->
+
+
+
+
+    <section class="banner-bottom-w3layouts bg-light py-lg-5 py-md-5 py-3" id="feature">
+        <div class="container">
+            <div class="inner-sec-w3ls-agileits py-lg-5 py-3">
+{#                <h4 class="sub-tittle text-uppercase text-center">предимства</h4>#}
+                <h3 class="tittle text-center">нашите предимства</h3>
+                <div class="row mt-lg-5 mt-md-4 mt-4">
+                    <div class="col-lg-4 about-in text-center">
+                        <div class="card">
+                            <div class="card-body">
+                                <i class="fas fa-list-ul mb-4"></i>
+                                <h5 class="card-title">изрази своето мнение</h5>
+{#                                <p class="card-text">изрази своето мнение</p>#}
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-4 about-in text-center">
+                        <div class="card">
+                            <div class="card-body">
+                                <i class="far fa-lightbulb mb-4"></i>
+                                <h5 class="card-title">разбери какво мислят останалите</h5>
+{#                                <p class="card-text">Lorem ipsum dolor sit amet consectetur elit,Adipisicing elit tempor.</p>#}
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-4 about-in text-center">
+                        <div class="card">
+                            <div class="card-body">
+                                <i class="far fa-clone mb-4"></i>
+                                <h5 class="card-title">открий отговори на често задавани въпроси</h5>
+{#                                <p class="card-text">Lorem ipsum dolor sit amet consectetur elit,Adipisicing elit tempor.</p>#}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 about-in mt-lg-4 text-center">
+                        <div class="card">
+                            <div class="card-body">
+                                <i class="far fa-heart mb-4"></i>
+                                <h5 class="card-title">разшири своя кръгозор</h5>
+{#                                <p class="card-text">Lorem ipsum dolor sit amet consectetur elit,Adipisicing elit tempor.</p>#}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 about-in mt-lg-4 text-center">
+                        <div class="card">
+                            <div class="card-body">
+                                <i class="fas fa-magic mb-4"></i>
+                                <h5 class="card-title">създай свой собствен форум</h5>
+{#                                <p class="card-text">Lorem ipsum dolor sit amet consectetur elit,Adipisicing elit tempor.</p>#}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 about-in mt-lg-4 text-center">
+                        <div class="card">
+                            <div class="card-body">
+                                <i class="fas fa-sliders-h mb-4"></i>
+                                <h5 class="card-title">модерен дизайн</h5>
+{#                                <p class="card-text">Lorem ipsum dolor sit amet consectetur elit,Adipisicing elit tempor.</p>#}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-emp-wthree bg-dark dotts py-lg-5 py-3">
+        <div class="container">
+
+            <div class="copyright-w3 mt-4">
+                <p class="copy-right text-center ">&copy; 2023 All Rights Reserved | Designed by Bilyant Ramiev
+{#                    <a href="http://w3layouts.com/"> W3layouts </a>#}
+                </p>
+            </div>
+
+
+        </div>
+    </footer>
+
+
+{% include 'common/js-footer-main-page.html' %}
+
+</body>

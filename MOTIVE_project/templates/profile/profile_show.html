@@ -1,0 +1,313 @@
+{% load static %}
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+<link href="{% static 'css/profile.css' %}" rel="stylesheet">
+{% include 'common/nav-main-page.html' %}
+
+{% load widget_tweaks %}
+<body>
+
+<style>
+
+    .card{
+    /*max-width: 360px;*/
+    border: 2px solid black;
+    border-radius: 6px;
+    /*overflow: hidden;*/
+    background-color: #fff;
+}
+
+.thumbnail{
+    width: 360px;
+    height: 360px;
+}
+
+.thumbnail__img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.content{
+    padding: 12px 18px;
+    text-align: center;
+}
+
+.content__title{
+    font-size: 20px;
+    margin-bottom: 6px;
+}
+
+.content__badge{
+    background-color: #fff5f1;
+    color: #e6b356;
+    display: inline-block;
+    /* padding: ; */
+}
+
+.content__section-title{
+    /*text-align: left;*/
+    font-size: 14px;
+    margin-bottom: 4px;
+    color: grey;
+}
+
+/*ul.content__projects{*/
+/*    border: 1px solid grey;*/
+/*    border-radius: 6px;*/
+/*    padding: 6px;*/
+/*    !*text-align: left;*!*/
+/*    font-size: 0;*/
+/*}*/
+
+.project{
+    background-color: lightgrey;
+    border-radius: 4px;
+    display: inline-block;
+    padding: 2px 6px;
+    margin-right: 4px;
+    font-size: 14px;
+}
+
+.project:last-child{
+    margin-right: 0;
+}
+
+.project:first-child{
+    margin-bottom: 4px;
+}
+
+.content__badge{
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
+#profile-card-container{
+  margin-top: 4rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-profile-stats>div .heading{
+    font-size: 2.2rem;
+}
+
+.card-profile-stats>div .description{
+        font-size: 1.1rem;
+}
+.user-location{
+    font-size: 1.5rem;
+}
+
+#profile-card-img-section{
+        margin-bottom: 5rem;
+}
+
+{# --------------- #}
+
+img {
+    --s: 10px; /* control the size */
+    padding: var(--s);
+    {#border: calc(2 * var(--s)) solid #0000;#}
+    outline: 1px solid #000;
+    outline-offset: calc(-1 * var(--s));
+    {#background: conic-gradient(from 90deg at 1px 1px, #0000 25%, #000 0);#}
+    height: 14rem;
+    max-width: 18rem; !important;
+}
+</style>
+
+
+    <!-- Page content -->
+    <div class="container-fluid mt--7">
+      <div class="row">
+        <div id="profile-card-container" class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
+          <div class="card card-profile shadow"  style="margin-top: 8rem">
+            <div class="row justify-content-center">
+              <div class="col-lg-3 order-lg-2">
+                <div class="card-profile-image">
+
+                  {% if profile.profile_image %}
+                      <div id="card-profile-image-container">
+                        <img src="/media/{{ profile.profile_image }}" class="rounded-circl img">
+                      </div>
+                  {% else %}
+                    <img src="{% static 'images/user-default.avif' %}" class="rounded-circle">
+{#                      <img src="{% static 'images/user-default.avif' %}" class="rounded-circle"/>#}
+
+                  {% endif %}
+
+
+{#                  <a href="#">#}
+{#                  <img src="https://imgv3.fotor.com/images/blog-cover-image/part-blurry-image.jpg"/>#}
+{#                  <img src="{% static 'images/annonymous-img.png' %}" class="rounded-circle"/>#}
+{#                  </a>#}
+                </div>
+              </div>
+            </div>
+            <div id="profile-card-img-section" class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4" style="background-color: transparent">
+              <div class="d-flex justify-content-between">
+
+
+{#	<a href="#myModal" class="trigger-btn" data-toggle="modal">Click to Open Confirm Modal</a>#}
+
+
+{#                <a class="btn btn-defaul" href="#" id="delete-profile-btn">#}
+{#                    <i class="fas fa-user-times"></i>#}
+{#                </a>#}
+{#                  <i class="far fa-trash-alt"></i>#}
+{#                <a href="#" id="edit-profile-btn" class="btn btn-default float-right">#}
+{#                    <i class="fas fa-user-edit"></i>#}
+{#                </a>#}
+              </div>
+            </div>
+
+{#                            <style>#}
+{#                      #delete-profile-btn{#}
+{#                          font-size: 20px;#}
+{#                          background: #ede4e4;#}
+{#                      }#}
+{#                      #edit-profile-btn{#}
+{#                          font-size: 20px;#}
+{#                          background: #a7c7af;#}
+{#                      }#}
+{#                  </style>#}
+
+          <style>
+              .content__title{
+                  text-align: center;
+                  margin-bottom: -3rem;
+                  font-size: 2.2rem;
+              }
+          </style>
+
+            <div class="card-body pt-0 pt-md-4">
+                {% if profile.first_name and profile.last_name %}
+                   <div class="content">
+                    <h2 class="content__title">{{ profile.get_full_name }}</h2>
+                  <div class="row">
+                  {% endif %}
+
+                <div class="col">
+
+                  <div class="card-profile-stats d-flex justify-content-center mt-md-5">
+
+                    <div>
+                      <span class="heading">{{ forums_participated_count }}</span>
+                      <span class="description">Участник във форуми</span>
+                    </div>
+                    <div>
+                      <span class="heading">{{ user_comments }}</span>
+                      <span class="description">Брой на коментарите</span>
+                    </div>
+                    <div>
+                      <span class="heading">{{ user_forums_created_count }}</span>
+                      <span class="description">създател на форуми</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="text-center">
+
+{#                  {% if user_age >= 0 %}#}
+{#                <h3>#}
+{#                    {{ profile.username }}<span class="font-weight-light">, {{ user_age }} години</span>#}
+{#                </h3>#}
+{#                  {% else %}#}
+{#                <h3>#}
+{#                    {{ profile.username }}#}
+{#                </h3>#}
+{#                  {% endif %}#}
+
+
+                {% if profile.get_full_name %}
+                     <p class="content__badge">{{ profile.username }}</p>
+                {% endif %}
+
+
+
+{#                <div class="h5 mt-4">#}
+{#                  <i class="ni business_briefcase-24 mr-2"></i>Изброени форумите, в които учавства#}
+{#                </div>#}
+
+
+                 {% if profile.residency %}
+                    <div class="h5 font-weight-300">
+                      <i class="ni location_pin mr-2"></i>
+
+                        <span class="user-location"><i class="fas fa-map-marker-alt"></i>
+                             {{ profile.residency }}</span>
+                    </div>
+                {% endif %}
+
+              {% if user_age %}
+                     <div class="h5 font-weight-300">
+                      <i class="ni location_pin mr-2"></i>на {{ user_age }} години
+                    </div>
+              {% endif %}
+{##}
+{#                <h3 class="content__section-title">Форумите, в които участва</h3>#}
+{#                <ul class="content__projects" role="list" style="list-style: none">#}
+{##}
+{#                        {% for forum in forums_participated %}#}
+{##}
+{#                        <li class="project">#}
+{#                            <i class="fas fa-file-alt"></i>#}
+{#                            <a href="{% url 'forum details' forum.id %}">#}
+{#                            <span class="project__name">{{ forum.forum.name }}</span>#}
+{#                            </a>#}
+{#                        </li>#}
+{##}
+{#                        {% endfor %}#}
+{#                    </ul>#}
+
+{#                <hr class="my-4">#}
+
+
+{#                <h3 class="content__section-title">Форумите, които е създал</h3>#}
+{#                    <ul class="content__projects" role="list" style="list-style: none">#}
+{##}
+{#                            {% for forum in user_forums_created %}#}
+{##}
+{#                            <li class="project">#}
+{#                                <i class="fas fa-file-alt"></i>#}
+{#                                <a href="{% url 'forum details' forum.id %}">#}
+{#                                <span class="project__name">{{ forum.name }}</span>#}
+{#                                </a>#}
+{#                            </li>#}
+{##}
+{#                            {% endfor %}#}
+{#                        </ul>#}
+            </div>
+
+
+{#                <div>#}
+{#                  <i class="ni education_hat mr-2"></i>някакъв текст#}
+{#                </div>#}
+
+               <style>
+                   .exit-btn{
+                       font-weight: 700;
+                        font-size: 1.3rem;
+                       display: block;
+                       text-align: right;
+                   }
+               </style>
+
+                <hr class="my-4">
+               {% if profile.description %}
+                    <p>{{ profile.description }}</p>
+               {% endif %}
+{#                <a class="exit-btn" href="#">Изход</a>#}
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+{% include 'common/js-footer-main-page.html' %}
+
+
+</body>

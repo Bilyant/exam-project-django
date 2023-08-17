@@ -1,0 +1,327 @@
+{% block js %}
+{% load static %}
+{% load widget_tweaks %}
+
+
+        <!--footer -->
+{#    <footer class="footer-emp-wthree bg-dark dotts py-lg-5 py-3">#}
+{#        <div class="container">#}
+{##}
+{#            <div class="row footer-top">#}
+{#                <div class="col-lg-4 footer-grid-w3ls">#}
+{##}
+{#                    <div class="footer-title">#}
+{#                        <h3>About Us</h3>#}
+{#                    </div>#}
+{#                    <div class="footer-text">#}
+{##}
+{#                        <p>Curabitur non nulla sit amet nislinit tempus convallis quis ac lectus. lac inia eget consectetur sed, convallis at tellus. Nulla porttitor accumsana tincidunt.</p>#}
+{#                        <ul class="social-icons">#}
+{#                            <li class="mr-1"><a href="#"><span class="fab fa-facebook-f"></span></a></li>#}
+{#                            <li class="mx-1"><a href="#"><span class="fab fa-twitter"></span></a></li>#}
+{#                            <li class="mx-1"><a href="#"><span class="fab fa-google-plus-g"></span></a></li>#}
+{#                            <li class="mx-1"><a href="#"><span class="fab fa-linkedin-in"></span></a></li>#}
+{#                        </ul>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-lg-4 footer-grid-w3ls">#}
+{#                    <div class="footer-title">#}
+{#                        <h3>Get in touch</h3>#}
+{#                    </div>#}
+{#                    <div class="contact-info">#}
+{#                        <h4>Location :</h4>#}
+{#                        <p>0926k 4th block building, king Avenue, New York City.</p>#}
+{#                        <div class="phone">#}
+{#                            <h4>Contact :</h4>#}
+{#                            <p>Phone : +121 098 8907 9987</p>#}
+{#                            <p>Email :#}
+{#                                <a href="mailto:info@example.com">info@example.com</a>#}
+{#                            </p>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-lg-4 footer-grid-w3ls">#}
+{#                    <div class="footer-title">#}
+{#                        <h3>Quick Links</h3>#}
+{#                    </div>#}
+{#                    <ul class="links">#}
+{#                        <li>#}
+{#                            <a href="index.html">Home</a>#}
+{#                        </li>#}
+{#                        <li>#}
+{#                            <a href="about.html">About</a>#}
+{#                        </li>#}
+{#                        <li>#}
+{#                            <a href="gallery.html">Gallery</a>#}
+{#                        </li>#}
+{#                        <li>#}
+{#                            <a href="pricing.html">Services</a>#}
+{#                        </li>#}
+{#                        <li>#}
+{#                            <a href="contact.html">Contact Us</a>#}
+{#                        </li>#}
+{#                    </ul>#}
+{#                    <ul class="links">#}
+{#                        <li>#}
+{#                            <a href="services.html">Features</a>#}
+{#                        </li>#}
+{#                        <li>#}
+{#                            <a href="contact.html">Support</a>#}
+{#                        </li>#}
+{#                        <li>#}
+{#                            <a href="blog.html">Blog</a>#}
+{#                        </li>#}
+{#                    </ul>#}
+{##}
+{#                    <div class="clearfix"></div>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="copyright-w3 mt-4">#}
+{#                <p class="copy-right text-center ">&copy; 2023 All Rights Reserved | Designed by Bilyant Ramiev#}
+{#                    <a href="http://w3layouts.com/"> W3layouts </a>#}
+{#                </p>#}
+{#            </div>#}
+{##}
+{##}
+{#        </div>#}
+{#    </footer>#}
+    <!-- //footer -->
+
+    <!--model-forms-->
+    <!--/Login-->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="login px-4 mx-auto mw-100">
+                        <h5 class="text-center mb-4">Вход</h5>
+                        <form action="#" method="post">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label class="mb-2">Имейл</label>
+                                {{ form_login.username|add_class:'form-control' }}
+{#                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required="">#}
+                            </div>
+                            <div class="form-group">
+                                <label class="mb-2">Парола</label>
+                                {{ form_login.password|add_class:'form-control' }}
+{#                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="" required="">#}
+                            </div>
+                            <button type="button" class="btn btn-primary submit mb-4">Вход</button>
+{#                            <p class="text-center pb-4">#}
+{#                                <a href="#" data-toggle="modal" data-target="#exampleModalCenter2">забравена парола</a>#}
+{#                            </p>#}
+{#                            <input type="hidden" value="{{ next }}" name="next"/>#}
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--//Login-->
+    <!--/Register-->
+    <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="login px-4 mx-auto mw-100">
+                        <h5 class="text-center mb-4">Регистрация</h5>
+                        <form action="#" method="post">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label>Имейл</label>
+
+{#                                <input type="email" name="email" maxlength="254" autofocus="" required="" id="id_email">#}
+                                {{ form_register.email }}
+{#                                <input type="email" class="form-control" id="id_email" placeholder="" required="">#}
+
+
+
+{#                                <input type="text" class="form-control" id="validationDefault02" placeholder="" required="">#}
+{#                                <div class="form-control" id="validationDefault02">{{ form.email }}</div>#}
+{#                                <input type="email" class="form-control" name="email" maxlength="254" autofocus="" required="" id="id_email">#}
+
+
+                            </div>
+                            <div class="form-group">
+                                <label>Потребител</label>
+                                {{ form_register.username }}
+{#                                <input type="text" class="form-control" name="username" maxlength="40" required="" id="id_username">#}
+
+{#                                <input type="email" class="form-control" id="validationDefault01" placeholder="" required="">#}
+{#                                {{ form.username }}#}
+                            </div>
+{#                            <div class="form-group">#}
+{#                                <label>Фамилия</label>#}
+{#                                <input type="text" class="form-control" id="validationDefault02" placeholder="" required="">#}
+{#                            </div>#}
+{#                            <div class="form-group">#}
+{#                                <label></label>#}
+{#                                <input type="text" class="form-control" id="validationDefault02" placeholder="" required="">#}
+{#                            </div>#}
+
+                            <div class="form-group">
+                                <label class="mb-2">Парола</label>
+                                {{ form_register.password1 }}
+{#                                <input type="password" class="form-control" name="password1" autocomplete="new-password" required="" id="id_password1">#}
+
+{#                                <input type="password" class="form-control" id="password1" placeholder="" required="">{{ form.password1 }}#}
+                            </div>
+                            <div class="form-group">
+                                <label>Повтори паролата</label>
+                                {{ form_register.password2 }}
+{#                                <input type="password" class="form-control" name="password2" autocomplete="new-password" required="" id="id_password2">#}
+
+{#                                <input type="password" class="form-control" id="password2" placeholder="" required="">{{ form.password2 }}#}
+                            </div>
+                            <div class="form-check mb-2">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">Приемам правилата за условията за лични данни и поверителност</label>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary submit mb-4">Регистрация</button>
+{#                            <p class="text-center pb-4">#}
+{#                                <a href="#">By clicking Register, I agree to your terms</a>#}
+{#                            </p>#}
+
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--//Register-->
+
+
+
+
+    <!--//model-form-->
+    <!-- js -->
+    <script src="{% static 'js/jquery-2.2.3.min.js' %}"></script>
+    <script src="{% static 'js/minimal-slider.js' %}"></script>
+    <script src="{% static 'js/toucheffects.js' %}"></script>
+    <script src="{% static 'js/modernizr.custom.js' %}"></script>
+    <!-- carousel -->
+    <script src="{% static 'js/owl.carousel.js' %}"></script>
+    <script>
+        $(document).ready(function() {
+            $('.owl-carousel').owlCarousel({
+                loop: true,
+                margin: 10,
+                responsiveClass: true,
+                responsive: {
+                    0: {
+                        items: 1,
+                        nav: true
+                    },
+                    600: {
+                        items: 1,
+                        nav: false
+                    },
+                    900: {
+                        items: 1,
+                        nav: false
+                    },
+                    1000: {
+                        items: 2,
+                        nav: true,
+                        loop: false,
+                        margin: 20
+                    }
+                }
+            })
+        })
+    </script>
+    <!-- //carousel -->
+    <script>
+        $(document).ready(function() {
+            $(".dropdown").hover(
+                function() {
+                    $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+                    $(this).toggleClass('open');
+                },
+                function() {
+                    $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+                    $(this).toggleClass('open');
+                }
+            );
+        });
+    </script>
+    <!-- //dropdown nav -->
+    <!-- stats -->
+    <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'js/jquery.countup.js' %}"></script>
+    <script>
+        $('.counter').countUp();
+    </script>
+    <!-- //stats -->
+    <!-- password-script -->
+    <script>
+        window.onload = function() {
+            document.getElementById("password1").onchange = validatePassword;
+            document.getElementById("password2").onchange = validatePassword;
+        }
+
+        function validatePassword() {
+            var pass2 = document.getElementById("password2").value;
+            var pass1 = document.getElementById("password1").value;
+            if (pass1 != pass2)
+                document.getElementById("password2").setCustomValidity("Passwords Don't Match");
+            else
+                document.getElementById("password2").setCustomValidity('');
+            //empty string means no validation error
+        }
+    </script>
+    <!-- //password-script -->
+
+    <!--/ start-smoth-scrolling -->
+    <script src="{% static 'js/move-top.js' %}"></script>
+    <script src="{% static 'js/easing.js' %}"></script>
+    <script>
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({
+                    scrollTop: $(this.hash).offset().top
+                }, 900);
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            /*
+            						var defaults = {
+            							  containerID: 'toTop', // fading element id
+            							containerHoverID: 'toTopHover', // fading element hover id
+            							scrollSpeed: 1200,
+            							easingType: 'linear'
+            						 };
+            						*/
+
+            $().UItoTop({
+                easingType: 'easeOutQuart'
+            });
+
+        });
+    </script>
+    <!--// end-smoth-scrolling -->
+    <!-- /js -->
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <!-- //js -->
+
+
+{% endblock %}

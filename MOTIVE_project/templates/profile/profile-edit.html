@@ -1,0 +1,191 @@
+{% include 'common/nav-main-page.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+<link href="{% static 'css/profile.css' %}" rel="stylesheet">
+
+
+<body>
+
+
+
+<body>
+
+<style>
+    #save-btn{
+        margin: 1.4rem;
+        padding: 0.6rem;
+        background: #ffc252;
+        color: black;
+        font-size: 0.8rem;
+    }
+</style>
+  <div class="main-content">
+
+    <!-- Page content -->
+      <form method="post" action="{% url 'profile edit' request.user.pk %}" enctype="multipart/form-data">
+      {% csrf_token %}
+
+          <style>
+              #profile-edit-container{
+                  margin-left: 24rem;
+                      max-width: 86rem;
+              }
+              #inner-profile-edit-container{
+                      margin-top: 6.5rem;
+              }
+              .header-bg{
+                   padding: 0;
+              }
+              nav h1{
+                  font-size: 2rem;
+                  font-weight: bold !important;
+              }
+          </style>
+
+    <div id="profile-edit-container" class="container-fluid mt--7">
+      <div id="inner-profile-edit-container" class="row">
+        <div class="col-xl-8 order-xl-1">
+          <div class="card bg-secondary shadow">
+            <div class="card-header bg-white border-0" style="background-color: #c58500 !important;">
+              <div class="row align-items-center">
+
+                <div class="col-8">
+                    <a href="#"><h3 class="mb-0">Профил</h3></a>
+
+                </div>
+                <div class="col-4 text-right">
+                </div>
+              </div>
+            </div>
+            <div class="card-body" style="background-color: white">
+
+              <form method="post" action="#" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                 <div class="pl-lg-6">
+                  <div class="form-group focused">
+                    <label class="form-control-label">Снимка на профила</label>
+                      {{ form.profile_image|add_class:'img-upload' }}
+{#                    <textarea rows="4" class="form-control form-control-alternative" placeholder="Няколко думи за мен..."></textarea>#}
+                  </div>
+              </form>
+                </div>
+
+                   <div class="col-lg-6">
+                      <div class="form-group focused" style="margin-left: -1rem">
+                        <label class="form-control-label" for="input-email">Дата на раждане</label>
+                          {{ form.date_of_birth }}
+{#                          <input type="date">#}
+{#                        <input type="email" id="input-email" class="form-control form-control-alternative" placeholder="username@example.com">#}
+                      </div>
+                    </div>
+                  </div>
+
+
+                <div class="pl-lg-4" style="background-color: white">
+
+
+
+
+
+
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group focused" style="background-color: white; !important;">
+                        <label class="form-control-label" for="input-username">Потребителско име</label>
+                          {{ form.username }}
+{#                        <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Username" value="">#}
+                      </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-email">Населено място</label>
+                          {{ form.residency }}
+{#                        <input type="email" id="input-email" class="form-control form-control-alternative" placeholder="username@example.com">#}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group focused">
+                            <label class="form-control-label" for="input-first-name">Име</label>
+                          {{ form.first_name }}
+{#                        <input type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="First name" value="">#}
+                      </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-last-name">Фамилия</label>
+                          {{ form.last_name }}
+{#                        <input type="text" id="input-last-name" class="form-control form-control-alternative" placeholder="Last name" value="">#}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+{#                <hr class="my-4">#}
+
+{#                <hr class="my-4">#}
+                <!-- Description -->
+{#                <h6 class="heading-small text-muted mb-4">About me</h6>#}
+
+                  <style>
+                      .img-upload{
+                          {#user-input: hidden;#}
+                          {#display: none;#}
+                          width: 105px;
+                          overflow: hidden;
+                      }
+                  </style>
+
+{#                <div class="pl-lg-4">#}
+{#                  <div class="form-group focused">#}
+{#                    <label class="form-control-label">Снимка на профила</label>#}
+{#                      {{ form.profile_image|add_class:'img-upload' }}#}
+{#                    <textarea rows="4" class="form-control form-control-alternative" placeholder="Няколко думи за мен..."></textarea>#}
+{#                  </div>#}
+{#                </div>#}
+
+
+
+                <div class="pl-lg-4" style="background-color: white;">
+                  <div class="form-group focused">
+                    <label class="form-control-label">Кратко описание</label>
+                      {{ form.description }}
+{#                    <textarea rows="4" class="form-control form-control-alternative" placeholder="Няколко думи за мен..."></textarea>#}
+                  </div>
+                </div>
+
+                <div style="background-color: white">
+                    <button id="save-btn" class="btn btn-sm btn-primary">Запази промените</button>
+{#                  <a href="{% url 'profile edit' request.user.id %}" class="btn btn-sm btn-primary">Запази промените</a>#}
+                </div>
+              </form>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+
+
+
+
+
+
+{% include 'common/js-footer-main-page.html' %}
+
+
+</body>
+
+
+

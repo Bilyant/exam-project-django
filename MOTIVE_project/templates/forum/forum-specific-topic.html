@@ -1,0 +1,189 @@
+{% load static %}
+{% include 'common/nav-main-page.html' %}
+
+{% load widget_tweaks %}
+
+<style>
+    #bg-image-forums-page{
+            padding-top: 0 !important;
+            height: 18rem;
+    }
+    .checked {
+        color: orange;
+    }
+    #stars{
+    {#display: flex;#}
+    gap: 15%;
+    font-size: 1.3rem;
+    }
+    #under-nav-section{
+        padding-top: 0; !important;
+    }
+    body{
+        background: #fef5db; !important;
+    }
+    #forum-topics{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-left: 10%;
+
+    }
+    #topic-container{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    #topic-div{
+            max-width: 80%;
+    }
+     #forum-topic-title{
+        color: white;
+    }
+
+    #forum-topic-subtitle {
+        margin: 1.2em 0 0 0;
+        font-size: 1em;
+        color: #ffe79e;
+        letter-spacing: 3px;
+        text-decoration: overline;
+    }
+    .author-name {
+        display: inline-block;
+        margin-bottom: 1.1rem;
+    }
+</style>
+
+
+
+<body>
+
+
+    <section id="bg-image-forums-page" class="freebies bg-light pt-md-5 pt-3" style="background-image: url('{% static 'images/forum-item.avif' %}')">
+        <div class="container freebies-intro pt-md-5">
+
+            <div class="row">
+                <div class="col-md-12">
+{#                    <h4 class="sub-tittle text-uppercase">някакъв текст</h4>#}
+{#                    <h3 class="tittle">Активни форуми</h3>#}
+                </div>
+            </div>
+
+               <section id="under-nav-section" class="banner-bottom-w3layouts py-lg-5 py-md-5 py-3">
+                <div class="container">
+                    <div class="inner-sec-w3ls-agileits py-lg-5 py-3">
+                        <h4 id="forum-topic-subtitle" class="sub-tittle text-uppercase text-center">тема</h4>
+                        <h3 id="forum-topic-title" class="tittle text-center mb-md-5 mb-4">{{ topics.name }}</h3>
+                        <div class="row">
+                        </div>
+                    </div>
+                </div>
+              </section>
+
+
+        {% for forum in forums %}
+
+
+           <div class="mian-content">
+
+            <!-- //breadcrumb -->
+             <section class="banner-bottom-w3layouts py-lg-5 py-md-5 py-3">
+                <div class="container">
+                    <div class="inner-sec-w3ls-agileits py-lg-5 py-3">
+{#                        <h4 class="sub-tittle text-uppercase text-center">тема</h4>#}
+{#                        <h3 class="tittle text-center mb-md-5 mb-4">{{ forum.topic }}</h3>#}
+                        <div class="row">
+                            <!--left-->
+                            <div class="col-lg-8 left-blog-info text-left">
+                                <div class="blog-sec">
+                                    <div class="about-in blog-grid-info text-left">
+                                        <div class="card img">
+                                            <div class="card-body img">
+                                            {% if forum.main_image %}
+                                                <img src="/media/{{ forum.main_image }}" class="img-fluid rounded" alt="">
+                                            {% else %}
+                                               <img src="{% static 'images/default-forum-main-img.avif' %}" alt="" class="img-fluid">
+                                            {% endif %}
+
+                                                <div class="blog-des blogger">
+                                                    <span class="entry-date">{{ forum.created|date }}</span>
+                                                    <h5 class="card-title text-uppercase mt-2"><a href="single.html">{{ forum.name }}</a></h5>
+                                                    <p class="card-text">{{ forum.description }}
+                                                    </p>
+                                                    <div class="log-in mt-md-3 mt-2">
+                                                        <a class="hover-2 btn text-uppercase" href="{% url 'forum details' forum.id %}">покажи</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <aside class="col-lg-4 right-blog-con text-right">
+                                <div class="right-blog-info text-left">
+                                <div class="tech-btm">
+
+                                    {% if forum.side_image %}
+                                        <img src="/media/{{ forum.side_image }}" class="img-fluid rounded" alt="">
+                                    {% else %}
+                                        <img src="{% static 'images/defailt-side-forum-img.avif' %}" class="img-fluid rounded" alt="">
+                                    {% endif %}
+
+                                </div>
+                                <div class="tech-btm">
+                                        <span>Автор: </span>
+                                        {% if not forum.host.get_full_name %}
+                                            <h4 class="author-name"> {{ forum.host.username }}</h4>
+                                        {% else %}
+                                            <h4 class="author-name"> {{ forum.host.get_full_name }}</h4>
+                                        {% endif %}
+
+                                   <div class="tech-btm">
+                                    <h4>Статистика</h4>
+                                    <ul class="list-group single">
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            Участници
+                                            <span class="badge badge-primary badge-pill">{{ forum.members.count }}</span>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            Коментари
+                                            <span class="badge badge-primary badge-pill">{{ forum.comments_set.count }}</span>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            Рейтинг: {{ forum.average_rating }}
+                                        <div id="stars">
+                                        {% if forum.get_ratings_round %}
+
+                                        {% for rating in forum.get_ratings_round|make_list %}
+                                            <span class="fa fa-star checked"></span>
+                                            {% endfor %}
+                                        {% else %}
+                                                <span class="far fa-star"></span>
+                                        {% endif %}
+                                        </div>
+
+                                        </li>
+                                         <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            Гласували
+                                            <span class="badge badge-primary badge-pill">{{ forum.ratings_count }}</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                        </div>
+                    </div>
+                            </aside>
+                </div>
+                    </div>
+                </div>
+             </section>
+
+        {% endfor %}
+
+
+{% include 'common/js-footer-main-page.html' %}
+            </div>
+        </div>
+    </section>
+
+</body>
