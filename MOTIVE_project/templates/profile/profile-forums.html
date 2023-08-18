@@ -55,7 +55,7 @@
                                 <img src="{% static 'images/forum-item.avif' %}" class="img-fluid" alt="img03">
                                 <figcaption>
                                     <h3 style="font-size: 1rem">{{ forum.name }}</h3>
-                                    <p class="topic-forum-item">{{ forum.topic }}</p>
+                                    <p class="topic-forum-item">{{ forum.topic.name }}</p>
     {#                                <span>{{ forum.forum.members.count }}</span>#}
                                     <a href="{% url 'forum details' forum.id %}">Покажи</a>
                                 </figcaption>

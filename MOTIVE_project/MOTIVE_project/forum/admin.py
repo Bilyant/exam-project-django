@@ -1,5 +1,4 @@
 from django.contrib import admin
-
 from MOTIVE_project.forum.models import Topics, Forum, ForumRatings
 
 

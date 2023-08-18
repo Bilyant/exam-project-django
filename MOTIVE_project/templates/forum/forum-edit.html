@@ -32,6 +32,23 @@
   .layout__body{
       margin: 1.4rem;
   }
+
+  input{
+      color: grey !important;
+  }
+
+  textarea{
+      color: grey !important;
+  }
+
+.moddified-btn{
+    background: orange;
+    color: black;
+    padding: 0.6rem 1rem;
+    font-size: 1.2rem;
+    margin-right: 2rem;
+}
+
 </style>
 
 
@@ -57,22 +74,25 @@
         <form class="form" action="{% url 'forum edit' pk=forum.id %}" method="POST" enctype="multipart/form-data">
           {% csrf_token %}
 
-{#          <div class="form__group">#}
-{#            <label for="room_topic">Тема</label>#}
-{#            <input required type="text" value="{{ forum.topic.name }}" name="topic" list="topic-list" />#}
+          <div class="form__group">
+            <label for="room_topic">Тема</label>
+            <input required type="text" value="{{ forum.topic.name }}" name="topic" list="topic-list" />
+
 {#            <datalist id="topic-list">#}
 {#              <select id="room_topic">#}
 {#                {% for topic in topics %}#}
 {#                <option value="{{ topic.name }}">{{ topic.name }}</option>#}
 {#                {% endfor %}#}
+{##}
 {#              </select>#}
 {#            </datalist>#}
-{#          </div>#}
-
-          <div class="form__group">
-            <label for="room_name">Тема</label>
-            {{form.topic}}
           </div>
+
+
+{#          <div class="form__group">#}
+{#            <label for="room_name">Тема</label>#}
+{#              {{ form.topic }}#}
+{#          </div>#}
 
            <div class="form__group">
             <label for="room_name">Име</label>
@@ -81,13 +101,13 @@
 
         <div id="images-container">
            <div class="">
-            <label class="img-labels" for="room_nam">основна снимка</label>
-            {{form.main_image|add_class:'img-upload'}}
+            <label style="margin-right: 1.5rem;" class="img-labels img-upload-text" for="room_nam">основна снимка</label>
+            {{form.main_image|add_class:'img-uploa'}}
           </div>
 
           <div>
-            <label class="img-labels" for="room_nam">странична снимка</label>
-            {{form.side_image|add_class:'img-upload'}}
+            <label class="img-labels img-upload-text" for="room_nam">странична снимка</label>
+            {{form.side_image|add_class:'img-uploa'}}
           </div>
         </div>
 
@@ -99,8 +119,8 @@
           </div>
 
           <div class="form__action">
-            <a class="btn btn--dark" href="#">Отказ</a>
-              <button class="btn btn--main" type="submit">Запази</button>
+{#            <a class="btn btn--dark" href="">Отказ</a>#}
+              <button class="btn btn--main moddified-btn" type="submit">Запази</button>
           </div>
         </form>
       </div>

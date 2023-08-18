@@ -3,598 +3,451 @@
 {% load static %}
 {% load widget_tweaks %}
 
-<link href="{% static 'css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+<link href="{% static 'css/bootstrap.css' %}" rel='stylesheet' type='text/css'/>
 <link rel="stylesheet" href="{% static 'css/component.css' %}" type="text/css" media="all">
-<link href="{% static 'css/style.css' %}" rel='stylesheet' type='text/css' />
-<link href="{% static 'css/single.css' %}" rel='stylesheet' type='text/css' />
+<link href="{% static 'css/style.css' %}" rel='stylesheet' type='text/css'/>
+<link href="{% static 'css/single.css' %}" rel='stylesheet' type='text/css'/>
 <link href="{% static 'css/fontawesome-all.css' %}" rel="stylesheet">
-<link href="//fonts.googleapis.com/css?family=Josefin+Sans:100,100i,300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Josefin+Sans:100,100i,300,300i,400,400i,600,600i,700,700i"
+      rel="stylesheet">
 <link href="//fonts.googleapis.com/css?family=BenchNine:300,400,700" rel="stylesheet">
 
 <body>
 
 <style>
-    #forum-main-context-container{
+    #forum-main-context-container {
         width: 100vw;
     }
-    #img-container-under-nav{
-            height: 20rem;
-            {#background-image: url("staticfiles/images/1.jpg");#}
+
+    #img-container-under-nav {
+        height: 20rem;
+    {#background-image: url("staticfiles/images/1.jpg");#}
     }
 
 
-{#  ----------------------   #}
+    {#  ----------------------   #}
 
 
-.avatar {
-  position: relative;
-  display: inline-block;
-  border-radius: 50%;
-  border: 2px solid var(--color-main);
-}
+    .avatar {
+        position: relative;
+        display: inline-block;
+        border-radius: 50%;
+        border: 2px solid var(--color-main);
+    }
 
-.avatar img {
-  display: block;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: center;
-}
+    .avatar img {
+        display: block;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center;
+    }
 
-.avatar::after {
-  content: "";
-  display: block;
-  position: absolute;
-  background-color: var(--color-gray);
-  z-index: 111;
-  border-radius: 50%;
-  border: 0.3rem solid var(--color-dark);
-}
+    .avatar::after {
+        content: "";
+        display: block;
+        position: absolute;
+        background-color: var(--color-gray);
+        z-index: 111;
+        border-radius: 50%;
+        border: 0.3rem solid var(--color-dark);
+    }
 
-.avatar.active::after {
-  background-color: var(--color-success);
-}
+    .avatar.active::after {
+        background-color: var(--color-success);
+    }
 
-.avatar.avatar--small img {
-  width: 2.8rem;
-  height: 2.8rem;
-}
+    .avatar.avatar--small img {
+        width: 2.8rem;
+        height: 2.8rem;
+    }
 
-.avatar.avatar--small:after {
-  width: 0.7rem;
-  height: 0.7rem;
-  bottom: 0px;
-  right: -6px;
-}
+    .avatar.avatar--small:after {
+        width: 0.7rem;
+        height: 0.7rem;
+        bottom: 0px;
+        right: -6px;
+    }
 
-.avatar.avatar--medium img {
-  width: 3.6rem;
-  height: 3.6rem;
-  border-radius: 50%;
-}
+    .avatar.avatar--medium img {
+        width: 3.6rem;
+        height: 3.6rem;
+        border-radius: 50%;
+    }
 
-.avatar.avatar--medium:after {
-  width: 0.7rem;
-  height: 0.7rem;
-  bottom: 0px;
-  right: -6px;
-}
+    .avatar.avatar--medium:after {
+        width: 0.7rem;
+        height: 0.7rem;
+        bottom: 0px;
+        right: -6px;
+    }
 
-.avatar.avatar--large img {
-  display: block;
-  width: 8rem;
-  height: 8rem;
-  border-radius: 50%;
-}
+    .avatar.avatar--large img {
+        display: block;
+        width: 8rem;
+        height: 8rem;
+        border-radius: 50%;
+    }
 
-.avatar.avatar--large:after {
-  width: 1rem;
-  height: 1rem;
-  bottom: 2px;
-  right: 3.5px;
-}
+    .avatar.avatar--large:after {
+        width: 1rem;
+        height: 1rem;
+        bottom: 2px;
+        right: 3.5px;
+    }
 
-#date-container{
-    display: inline-block;
-    margin-top: -0.2rem;
-}
+    #date-container {
+        display: inline-block;
+        margin-top: -0.2rem;
+    }
 
-#username-comment-container{
-    display: flex;
-    justify-content: space-between;
-}
+    #username-comment-container {
+        display: flex;
+        justify-content: space-between;
+    }
 
-#edit-btn{
-    margin-right: 0.5rem;
-}
+    #edit-btn {
+        margin-right: 0.5rem;
+    }
 
-#edit-delete-comment-btns{
-    display: flex;
-    justify-content: flex-end;
-    gap: 5%;
-}
+    #edit-delete-comment-btns {
+        display: flex;
+        justify-content: flex-end;
+        gap: 5%;
+    }
+
     .checked {
         color: orange;
     }
-    #stars{
-    display: flex;
-    gap: 15%;
-    font-size: 1.3rem;
+
+    #stars {
+        display: flex;
+        gap: 15%;
+        font-size: 1.3rem;
     }
-    #config-host-btns{
+
+    #config-host-btns {
         padding-bottom: 0.6rem !important;
     }
-    #vote-label{
+
+    #vote-label {
         color: white;
         margin-top: 1rem;
     }
-    #topic-name-container{
+
+    #topic-name-container {
         margin-top: -2rem;
     }
 
-    .author-name{
-        font-size: 3rem;
-        color: #4d3a00;
+    .author-name {
+        font-size: 2rem;
+        color: #525659;
         letter-spacing: 5px;
     }
-    #author-name{
-        margin-bottom: 2rem;
+
+    #author-name {
+        margin-bottom: 5rem;
     }
 
 </style>
 
 
-    <section class="bottom-last" style="background-image: url('{% static 'images/forum-bg-image.avif' %}')">
-        <div id="img-container-under-nav" class="bottom-bg py-5 bs-slider-overlay text-left">
-            <div id="topic-name-container" class="container">
-                <h3 class="tittle text-left">{{ current_forum.topic.name }}</h3>
-                {% if current_forum.host.username == request.user.username %}
+<section class="bottom-last" style="background-image: url('{% static 'images/forum-bg-image.avif' %}')">
+    <div id="img-container-under-nav" class="bottom-bg py-5 bs-slider-overlay text-left">
+        <div id="topic-name-container" class="container">
+            <h3 class="tittle text-left">{{ current_forum.topic.name }}</h3>
+            {% if current_forum.host.username == request.user.username %}
                 <div id="config-host-btns" class="log-in pb-md-5 pb-3">
-                    <a id="edit-btn" class="hover-2 btn text-uppercase" href="{% url 'forum edit' current_forum.id %}"><i class="far fa-edit"></i></a>
-                    <a class="hover-2 btn text-uppercase" href="{% url 'forum delete' current_forum.id %}"><i class="far fa-trash-alt"></i></a>
+                    <a id="edit-btn" class="hover-2 btn text-uppercase"
+                       href="{% url 'forum edit' current_forum.id %}"><i class="far fa-edit"></i></a>
+                    <a class="hover-2 btn text-uppercase" href="{% url 'forum delete' current_forum.id %}"><i
+                            class="far fa-trash-alt"></i></a>
                 </div>
-                {% endif %}
+            {% endif %}
 
-            {% if not has_user_rated %}
-            <form action="{% url 'forum details' pk=forum_id %}" method="post">
-                <h5 id="vote-label">Гласувай</h5>
-            <a href="#">
-                <input type="submit" value="Гласувай" name="Гласувай">
-            </a>
-                {{ rating_form.ratings }}
-            </div>
-        {% endif %}
+            {% if not has_user_rated and request.user.id != current_forum.host_id %}
+                <form action="{% url 'forum details' pk=forum_id %}" method="post">
+                    <h5 id="vote-label">Гласувай</h5>
+                    <a href="#">
+                        <input type="submit" value="Гласувай" name="Гласувай">
+                    </a>
+                    {{ rating_form.ratings }}
+                </div>
+            {% endif %}
         <form/>
 
 
-        </div>
-    </section>
+    </div>
+</section>
 
-     <section class="banner-bottom-w3layouts py-lg-5 py-md-5 py-3">
+<section class="banner-bottom-w3layouts py-lg-5 py-md-5 py-3">
 
-        <div class="container">
+    <div class="container">
 
-            <div class="inner-sec-w3ls-agileits py-lg-5 py-3">
-                <h4 id="author-name" class="sub-tittle text-center topic-name">Aвтор: <div class="author-name">{{ current_forum.host.username }}</div></h4>
-                <h3 class="tittle text-center mb-md-5 mb-4">{{ current_forum.name }}</h3>
-                <div id="forum-main-context-container" class="row">
-                    <!--left-->
-                    <div class="col-lg-8 left-blog-info text-left">
-                         <div class="blog-grid-top">
-                            <div class="b-grid-top">
-                                <div class="blog_info_left_grid">
-                                    <a href="single.html">
-{#									<img src="{% static 'images/1.jpg' %}" class="img-fluid" alt="">#}
-								</a>
-                                </div>
+        <div class="inner-sec-w3ls-agileits py-lg-5 py-3">
+            <h4 id="author-name" class="sub-tittle text-center topic-name">Aвтор:
+                {% if not current_forum.host.first_name and not current_forum.host.last_name %}
+                <div class="author-name">{{ current_forum.host.username }}</div>
+            {% else %}
+                <div class="author-name">{{ current_forum.host.get_full_name }}</div>
+            </h4>
+            {% endif %}
+            <h3 class="tittle text-center mb-md-5 mb-4">{{ current_forum.name }}</h3>
+            <div id="forum-main-context-container" class="row">
+                <!--left-->
+                <div class="col-lg-8 left-blog-info text-left">
+                    <div class="blog-grid-top">
+                        <div class="b-grid-top">
+                            <div class="blog_info_left_grid">
+                                <a href="#">
+                                    {#									<img src="{% static 'images/1.jpg' %}" class="img-fluid" alt="">#}
+                                </a>
                             </div>
-
-                            <h3>
-                                <a href="single.html">Описание</a>
-                            </h3>
-                            <p>{{ current_forum.description }}</p>
-
                         </div>
 
-                        <div class="comment-top">
-                            <h4>Коментари</h4>
+                        <h3>
+                            <a href="single.html">Описание</a>
+                        </h3>
+                        <p>{{ current_forum.description }}</p>
 
-                            {% for comment in current_forum_comments %}
+                    </div>
 
-                                <div class="media">
-                                   <div class="avatar avatar--small">
-                                       <a href="{% url 'profile' comment.user_id %}">
-                                           {% if comment.user.profile_image %}
-                                                <img src="/media/{{ comment.user.profile_image }}"  alt=""/>
-                                           {% else %}
-                                                <img src="{% static 'images/annonymous-img.png' %}" alt=""/>
-                                           {% endif %}
-                                       </a>
-                                    </div>
+                    <div class="comment-top">
+                        <h4>Коментари</h4>
+
+                        {% for comment in current_forum_comments %}
+
+                            <div class="media">
+
+                                <div class="avatar avatar--small">
+                                    <a href="{% url 'profile' comment.user_id %}">
+                                        {% if comment.user.profile_image %}
+                                            <img src="/media/{{ comment.user.profile_image }}" alt=""/>
+                                        {% else %}
+                                            <img src="{% static 'images/user-default.avif' %}" alt=""/>
+                                        {% endif %}
+                                    </a>
+                                </div>
 
                                 <div class="media-body">
-{#                                    <i class="fas fa-user"></i> #}
+                                    {#                                    <i class="fas fa-user"></i> #}
                                     <h5 id="username-comment-container" class="mt-0">{{ comment.user.username }}
                                         <div id="date-container">
-{#                                    <span>{{ comment.created|date }}</span>#}
-                                    <span>{{ comment.created|timesince }} ago</span>
-                                        <form method="post" action="{% url 'comment edit' current_forum.id %}">
-                                            {% csrf_token %}
-                                            <input type="hidden" name="{{ comment.id }}"/>
-{#                                            <input type="submit" value="Edit"/>#}
-                                            {% if request.user.id == comment.user_id %}
-                                                <div id="edit-delete-comment-btns">
-                                                <a href="{% url 'comment edit' comment.id %}"><i class="fas fa-edit"></i></a>
-                                                <a href="{% url 'comment delete' comment.id %}"><i class="far fa-trash-alt"></i></a>
-{#                                                <a href="#myModal" data-toggle="modal"><i class="far fa-trash-alt trigger-btn"></i></a>#}
-{#	                                            <a href="#myModal" class="trigger-btn" data-toggle="modal">Изтриване на коментар</a>#}
+                                            {#                                    <span>{{ comment.created|date }}</span>#}
+                                            <span>{{ comment.created|timesince }} ago</span>
+                                            <form method="post" action="{% url 'comment edit' current_forum.id %}">
+                                                {% csrf_token %}
+                                                <input type="hidden" name="{{ comment.id }}"/>
+                                                {#                                            <input type="submit" value="Edit"/>#}
+                                                {% if request.user.id == comment.user_id %}
+                                                    <div id="edit-delete-comment-btns">
+                                                        <a href="{% url 'comment edit' comment.id %}"><i
+                                                                class="fas fa-edit"></i></a>
+                                                        <a href="{% url 'comment delete' comment.id %}"><i
+                                                                class="far fa-trash-alt"></i></a>
+                                                    </div>
+                                                {% endif %}
 
-                                                </div>
-                                            {% endif %}
-
-                                        </form>
+                                            </form>
                                         </div>
                                     </h5>
-{#                                    <h5 class="mt-0">преди {{ comment.created|timesince }}</h5>\#}
+
                                     <p>{{ comment.content }}</p>
-                                         </div>
-                                    </div>
-
-                            <hr/>
-                            {% endfor %}
-
                                 </div>
                             </div>
-                        </div>
-                        <div class="comment-top">
 
-
-                            <div class="comment-bottom">
-                                <form action="{% url 'forum details' pk=current_forum.id %}" method="post">
-                                    {% csrf_token %}
-                                    <textarea rows="6" cols="40" class="form-control" name="Message" placeholder="Коментар ..."></textarea>
-                                    <button type="submit" class="btn btn-primary submit">Изпрати</button>
-                                </form>
-                            </div>
-                        </div>
+                            <hr/>
+                        {% endfor %}
 
                     </div>
-
-                    <!--//left-->
-                    <!--right-->
-{#                    <aside class="col-lg-4 right-blog-con text-right">#}
-{#                        <div class="right-blog-info text-left">#}
-{#                            <div class="tech-btm">#}
-{#                                <img src="images/g4.jpg" class="img-fluid rounded" alt="">#}
-{#                            </div>#}
-{#                            <div class="tech-btm">#}
-{#                                <h4>Sign up to our newsletter</h4>#}
-{#                                <p>Pellentesque dui, non felis. Maecenas male </p>#}
-{#                                <form action="#" method="post">#}
-{#                                    <input class="form-control" type="email" placeholder="Email" required="">#}
-{#                                    <input class="form-control" type="submit" value="Subscribe">#}
-{#                                </form>#}
-{##}
-{#                            </div>#}
-{#                            <div class="tech-btm">#}
-{#                                <h4>Categories</h4>#}
-{#                                <ul class="list-group single">#}
-{#                                    <li class="list-group-item d-flex justify-content-between align-items-center">#}
-{#                                        Cras justo odio#}
-{#                                        <span class="badge badge-primary badge-pill">14</span>#}
-{#                                    </li>#}
-{#                                    <li class="list-group-item d-flex justify-content-between align-items-center">#}
-{#                                        Dapibus ac facilisis in#}
-{#                                        <span class="badge badge-primary badge-pill">2</span>#}
-{#                                    </li>#}
-{#                                    <li class="list-group-item d-flex justify-content-between align-items-center">#}
-{#                                        Morbi leo risus#}
-{#                                        <span class="badge badge-primary badge-pill">1</span>#}
-{#                                    </li>#}
-{#                                </ul>#}
-{#                            </div>#}
-{#                            <div class="tech-btm">#}
-{#                                <h4>Top stories of the week</h4>#}
-{##}
-{#                                <div class="blog-grids row mb-3">#}
-{#                                    <div class="col-md-5 blog-grid-left">#}
-{#                                        <a href="single.html">#}
-{#										<img src="images/g3.jpg" class="img-fluid rounded" alt="">#}
-{#									</a>#}
-{#                                    </div>#}
-{#                                    <div class="col-md-7 blog-grid-right">#}
-{##}
-{#                                        <h5>#}
-{#                                            <a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>#}
-{#                                        </h5>#}
-{#                                        <div class="sub-meta">#}
-{#                                            <span>#}
-{#											<i class="far fa-clock"></i> 20 Jan, 2018</span>#}
-{#                                        </div>#}
-{#                                    </div>#}
-{##}
-{#                                </div>#}
-{#                                <div class="blog-grids row mb-3">#}
-{#                                    <div class="col-md-5 blog-grid-left">#}
-{#                                        <a href="single.html">#}
-{#										<img src="images/g6.jpg" class="img-fluid rounded" alt="">#}
-{#									</a>#}
-{#                                    </div>#}
-{#                                    <div class="col-md-7 blog-grid-right">#}
-{#                                        <h5>#}
-{#                                            <a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>#}
-{#                                        </h5>#}
-{#                                        <div class="sub-meta">#}
-{#                                            <span>#}
-{#											<i class="far fa-clock"></i> 20 Feb, 2018</span>#}
-{#                                        </div>#}
-{#                                    </div>#}
-{##}
-{#                                </div>#}
-{#                            </div>#}
-{##}
-{#                            <div class="single-gd tech-btm">#}
-{#                                <h4>Recent Post</h4>#}
-{#                                <div class="blog-grids">#}
-{#                                    <div class="blog-grid-left">#}
-{#                                        <a href="single.html">#}
-{#										<img src="images/g2.jpg" class="img-fluid rounded" alt="">#}
-{#									</a>#}
-{#                                    </div>#}
-{#                                    <div class="blog-grid-right">#}
-{##}
-{#                                        <h5>#}
-{#                                            <a href="single.html">Pellentesque dui, non felis. Maecenas male</a>#}
-{#                                        </h5>#}
-{#                                    </div>#}
-{#                                    <div class="clearfix"> </div>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{##}
-{#                    </aside>#}
-                    <!--//right-->
                 </div>
-
             </div>
+            <div class="comment-top">
+
+                <div class="comment-bottom">
+                    <form action="{% url 'forum details' pk=current_forum.id %}" method="POST">
+{#                    <form action="#" method="POST">#}
+                        {% csrf_token %}
+                        <textarea rows="6" cols="40" class="form-control" name="Message"
+                                  placeholder="Коментар ..."></textarea>
+{#                        <input type="Submit" class="btn btn-primary submit" value="Изпрати"/>#}
+                        <button type="submit" class="btn btn-primary submit">Изпрати</button>
+{#                        <input type="submit" value="Send"/>#}
+                    </form>
+                </div>
+            </div>
+
         </div>
-    </section>
-    <!--/single-->
 
-    <!--footer -->
-    <footer class="footer-emp-wthree bg-dark dotts py-lg-5 py-3">
-        <div class="container">
-            <div class="row footer-top">
-                <div class="col-lg-4 footer-grid-w3ls">
-                    <div class="footer-title">
-                        <h3>About Us</h3>
-                    </div>
-                    <div class="footer-text">
-                        <p>Curabitur non nulla sit amet nislinit tempus convallis quis ac lectus. lac inia eget consectetur sed, convallis at tellus. Nulla porttitor accumsana tincidunt.</p>
-                        <ul class="social-icons">
-                            <li class="mr-1"><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-                            <li class="mx-1"><a href="#"><span class="fab fa-twitter"></span></a></li>
-                            <li class="mx-1"><a href="#"><span class="fab fa-google-plus-g"></span></a></li>
-                            <li class="mx-1"><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4 footer-grid-w3ls">
-                    <div class="footer-title">
-                        <h3>Get in touch</h3>
-                    </div>
-                    <div class="contact-info">
-                        <h4>Location :</h4>
-                        <p>0926k 4th block building, king Avenue, New York City.</p>
-                        <div class="phone">
-                            <h4>Contact :</h4>
-                            <p>Phone : +121 098 8907 9987</p>
-                            <p>Email :
-                                <a href="mailto:info@example.com">info@example.com</a>
-                            </p>
+    </div>
+
+    </div>
+    </div>
+</section>
+<!--/single-->
+
+
+
+<!--model-forms-->
+<!--/Login-->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <div class="login px-4 mx-auto mw-100">
+                    <h5 class="text-center mb-4">Login Now</h5>
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <label class="mb-2">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                   aria-describedby="emailHelp" placeholder="" required="">
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                                else.</small>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 footer-grid-w3ls">
-                    <div class="footer-title">
-                        <h3>Quick Links</h3>
-                    </div>
-                    <ul class="links">
-                        <li>
-                            <a href="../common/index.html">Home</a>
-                        </li>
-                        <li>
-                            <a href="about.html">About</a>
-                        </li>
-                        <li>
-                            <a href="gallery.html">Gallery</a>
-                        </li>
-                        <li>
-                            <a href="pricing.html">Services</a>
-                        </li>
-                        <li>
-                            <a href="contact.html">Contact Us</a>
-                        </li>
-                    </ul>
-                    <ul class="links">
-                        <li>
-                            <a href="services.html">Features</a>
-                        </li>
-                        <li>
-                            <a href="contact.html">Support</a>
-                        </li>
-                        <li>
-                            <a href="blog.html">Blog</a>
-                        </li>
-                    </ul>
-                    <div class="clearfix"></div>
+                        <div class="form-group">
+                            <label class="mb-2">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder=""
+                                   required="">
+                        </div>
+                        <div class="form-check mb-2">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary submit mb-4">Sign In</button>
+                        <p class="text-center pb-4">
+                            <a href="#" data-toggle="modal" data-target="#exampleModalCenter2"> Don't have an
+                                account?</a>
+                        </p>
+                    </form>
                 </div>
             </div>
-            <div class="copyright-w3 mt-4">
-                <p class="copy-right text-center ">&copy; 2018 Arable. All Rights Reserved | Design by
-                    <a href="http://w3layouts.com/"> W3layouts </a>
-                </p>
-            </div>
-        </div>
-    </footer>
-    <!-- //footer -->
 
-    <!--model-forms-->
-    <!--/Login-->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header text-center">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-
-                    <div class="login px-4 mx-auto mw-100">
-                        <h5 class="text-center mb-4">Login Now</h5>
-                        <form action="#" method="post">
-                            <div class="form-group">
-                                <label class="mb-2">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required="">
-                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                            </div>
-                            <div class="form-group">
-                                <label class="mb-2">Password</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="" required="">
-                            </div>
-                            <div class="form-check mb-2">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                            </div>
-                            <button type="submit" class="btn btn-primary submit mb-4">Sign In</button>
-                            <p class="text-center pb-4">
-                                <a href="#" data-toggle="modal" data-target="#exampleModalCenter2"> Don't have an account?</a>
-                            </p>
-                        </form>
-                    </div>
-                </div>
-
-            </div>
         </div>
     </div>
-    <!--//Login-->
-    <!--/Register-->
-    <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header text-center">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="login px-4 mx-auto mw-100">
-                        <h5 class="text-center mb-4">Register Now</h5>
-                        <form action="#" method="post">
-                            <div class="form-group">
-                                <label>First name</label>
-
-                                <input type="text" class="form-control" id="validationDefault01" placeholder="" required="">
-                            </div>
-                            <div class="form-group">
-                                <label>Last name</label>
-                                <input type="text" class="form-control" id="validationDefault02" placeholder="" required="">
-                            </div>
-
-                            <div class="form-group">
-                                <label class="mb-2">Password</label>
-                                <input type="password" class="form-control" id="password1" placeholder="" required="">
-                            </div>
-                            <div class="form-group">
-                                <label>Confirm Password</label>
-                                <input type="password" class="form-control" id="password2" placeholder="" required="">
-                            </div>
-
-                            <button type="submit" class="btn btn-primary submit mb-4">Register</button>
-                            <p class="text-center pb-4">
-                                <a href="#">By clicking Register, I agree to your terms</a>
-                            </p>
-                        </form>
-
-                    </div>
-                </div>
-
+</div>
+<!--//Login-->
+<!--/Register-->
+<div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
+            <div class="modal-body">
+                <div class="login px-4 mx-auto mw-100">
+                    <h5 class="text-center mb-4">Register Now</h5>
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <label>First name</label>
+
+                            <input type="text" class="form-control" id="validationDefault01" placeholder="" required="">
+                        </div>
+                        <div class="form-group">
+                            <label>Last name</label>
+                            <input type="text" class="form-control" id="validationDefault02" placeholder="" required="">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="mb-2">Password</label>
+                            <input type="password" class="form-control" id="password1" placeholder="" required="">
+                        </div>
+                        <div class="form-group">
+                            <label>Confirm Password</label>
+                            <input type="password" class="form-control" id="password2" placeholder="" required="">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary submit mb-4">Register</button>
+                        <p class="text-center pb-4">
+                            <a href="#">By clicking Register, I agree to your terms</a>
+                        </p>
+                    </form>
+
+                </div>
+            </div>
+
         </div>
     </div>
-    <!--//Register-->
+</div>
+<!--//Register-->
 
-    <!--//model-form-->
+<!--//model-form-->
 <!-- js -->
-    <script src="js/jquery-2.2.3.min.js"></script>
-    <script src="js/modernizr.custom.js"></script>
-    <script>
-        $(document).ready(function() {
-            $(".dropdown").hover(
-                function() {
-                    $('.dropdown-menu', this).stop(true, true).slideDown("fast");
-                    $(this).toggleClass('open');
-                },
-                function() {
-                    $('.dropdown-menu', this).stop(true, true).slideUp("fast");
-                    $(this).toggleClass('open');
-                }
-            );
-        });
-    </script>
-    <!-- //dropdown nav -->
-    <!-- password-script -->
-    <script>
-        window.onload = function() {
-            document.getElementById("password1").onchange = validatePassword;
-            document.getElementById("password2").onchange = validatePassword;
-        }
+<script src="js/jquery-2.2.3.min.js"></script>
+<script src="js/modernizr.custom.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".dropdown").hover(
+            function () {
+                $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+                $(this).toggleClass('open');
+            },
+            function () {
+                $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+                $(this).toggleClass('open');
+            }
+        );
+    });
+</script>
+<!-- //dropdown nav -->
+<!-- password-script -->
+<script>
+    window.onload = function () {
+        document.getElementById("password1").onchange = validatePassword;
+        document.getElementById("password2").onchange = validatePassword;
+    }
 
-        function validatePassword() {
-            var pass2 = document.getElementById("password2").value;
-            var pass1 = document.getElementById("password1").value;
-            if (pass1 != pass2)
-                document.getElementById("password2").setCustomValidity("Passwords Don't Match");
-            else
-                document.getElementById("password2").setCustomValidity('');
-            //empty string means no validation error
-        }
-    </script>
-    <!-- //password-script -->
-    <!--/ start-smoth-scrolling -->
-    <script src="js/move-top.js"></script>
-    <script src="js/easing.js"></script>
-    <script>
-        jQuery(document).ready(function($) {
-            $(".scroll").click(function(event) {
-                event.preventDefault();
-                $('html,body').animate({
-                    scrollTop: $(this.hash).offset().top
-                }, 900);
-            });
+    function validatePassword() {
+        var pass2 = document.getElementById("password2").value;
+        var pass1 = document.getElementById("password1").value;
+        if (pass1 != pass2)
+            document.getElementById("password2").setCustomValidity("Passwords Don't Match");
+        else
+            document.getElementById("password2").setCustomValidity('');
+        //empty string means no validation error
+    }
+</script>
+<!-- //password-script -->
+<!--/ start-smoth-scrolling -->
+<script src="js/move-top.js"></script>
+<script src="js/easing.js"></script>
+<script>
+    jQuery(document).ready(function ($) {
+        $(".scroll").click(function (event) {
+            event.preventDefault();
+            $('html,body').animate({
+                scrollTop: $(this.hash).offset().top
+            }, 900);
         });
-    </script>
-    <script>
-        $(document).ready(function() {
-            /*
-            						var defaults = {
-            							  containerID: 'toTop', // fading element id
-            							containerHoverID: 'toTopHover', // fading element hover id
-            							scrollSpeed: 1200,
-            							easingType: 'linear'
-            						 };
-            						*/
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        /*
+                                var defaults = {
+                                      containerID: 'toTop', // fading element id
+                                    containerHoverID: 'toTopHover', // fading element hover id
+                                    scrollSpeed: 1200,
+                                    easingType: 'linear'
+                                 };
+                                */
 
-            $().UItoTop({
-                easingType: 'easeOutQuart'
-            });
-
+        $().UItoTop({
+            easingType: 'easeOutQuart'
         });
-    </script>
-    <!--// end-smoth-scrolling -->
-    <!-- /js -->
-    <script src="js/bootstrap.js"></script>
-    <!-- //js -->
+
+    });
+</script>
+<!--// end-smoth-scrolling -->
+<!-- /js -->
+<script src="js/bootstrap.js"></script>
+<!-- //js -->
 </body>
 
 

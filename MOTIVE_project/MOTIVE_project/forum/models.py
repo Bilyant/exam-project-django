@@ -1,6 +1,4 @@
-from django.contrib.auth import get_user_model
 from django.db import models
-
 from MOTIVE_project.profiles.models import CustomUser
 
 
@@ -19,12 +17,12 @@ class Topics(models.Model):
 
 
 class Forum(models.Model):
-    NAME_MAX_LENGTH = 60
+    NAME_MAX_LENGTH = 80
     TOPIC_MAX_LENGTH = 60
-    DESCRIPTION_MAX_LENGTH = 600
+    DESCRIPTION_MAX_LENGTH = 1000
     CHOICES_MAX_LENGTH = 20
 
-    host = models.ForeignKey(CustomUser, on_delete=models.SET_NULL, null=True)
+    host = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null=True)
     topic = models.ForeignKey(Topics, on_delete=models.SET_NULL, null=True)
     name = models.CharField(max_length=NAME_MAX_LENGTH)
     members = models.ManyToManyField(CustomUser, related_name='members', blank=True)

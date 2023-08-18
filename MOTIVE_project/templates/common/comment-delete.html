@@ -16,7 +16,7 @@
 <style>
 {#body {#}
 {#	font-family: 'Varela Round', sans-serif;#}
-{#}#}
+
 .modal-confirm {
 	color: #636363;
 	width: 400px;
@@ -129,7 +129,7 @@
 				<p>Сигурни ли сте, че искате да си изтриете коментара?</p>
 			</div>
              {% if request.user.is_authenticated %}
-             <form method="post" action="{% url 'comment delete' pk=35 %}">
+             <form method="post" action="{% url 'comment delete' pk=comment.id %}">
                 {{ form }}
                 {% csrf_token %}
 			<div class="modal-footer justify-content-center">

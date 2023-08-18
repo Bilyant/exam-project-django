@@ -1,5 +1,4 @@
 from django import forms
-
 from MOTIVE_project.common.models import Comments
 
 

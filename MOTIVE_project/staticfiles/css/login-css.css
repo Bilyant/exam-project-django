@@ -37,11 +37,11 @@
   }
 }
 
-@media only screen and (min-width: 2100px) {
-  html {
-    font-size: 75%;
-  }
-}
+/*@media only screen and (min-width: 2100px) {*/
+/*  html {*/
+/*    font-size: 75%;*/
+/*  }*/
+/*}*/
 
 body {
   line-height: 1.6;
@@ -52,9 +52,9 @@ body {
   min-height: 100vh;
 }
 
-/*img {*/
-/*  width: 100%;*/
-/*}*/
+img {
+  width: 100%;
+}
 
 /*a {*/
 /*  display: inline-block;*/
@@ -1185,9 +1185,9 @@ body {
   line-height: 1.2;
 }
 
-.participant span {
-  display: block;
-  font-weight: 500;
-  color: var(--color-main);
-  font-weight: 1.4rem;
-}
+/*.participant span {*/
+/*  display: block;*/
+/*  font-weight: 500;*/
+/*  color: var(--color-main);*/
+/*  font-weight: 1.4rem;*/
+/*}*/

@@ -1,7 +1,5 @@
-from django.contrib.auth import get_user_model
 from django.db import models
 from django.utils import timezone
-
 from MOTIVE_project.forum.models import Forum
 from MOTIVE_project.profiles.models import CustomUser
 

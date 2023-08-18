@@ -2,7 +2,6 @@
 {% load widget_tweaks %}
 <link rel="stylesheet" href="{% static 'css/forum.css' %}" />
 {% include 'common/nav-main-page.html' %}
-
 <style>
     #create-form-container{
         background-color: #fff6e5;
@@ -13,6 +12,7 @@
     #images-container,
     #images-container div{
         display: flex;
+        flex-wrap: wrap;
     }
     #images-container{
         gap: 5%;
@@ -23,10 +23,14 @@
         font-weight: 450;
         margin-right: 0.4rem;
     }
+    .upload-img-container{
+        display: flex;
+        flex-wrap: wrap !important;
+    }
 
   .img-upload{
-      width: 106px;
-      overflow: hidden;
+      {#width: 106px;#}
+      {#overflow: hidden;#}
       }
   input{
       color: grey !important;
@@ -37,6 +41,9 @@
   .customized-btns{
       color: black;
       background-color: #edaa1e;
+  }
+  .main-img-label{
+      margin-right: 1.6rem;
   }
 </style>
 
@@ -81,8 +88,8 @@
           </div>
 
         <div id="images-container">
-           <div class="">
-            <label class="img-labels" for="room_nam">основна снимка</label>
+           <div class="upload-img-container">
+            <label class="img-labels main-img-label" for="room_nam">основна снимка</label>
             {{form.main_image|add_class:'img-upload'}}
           </div>
 

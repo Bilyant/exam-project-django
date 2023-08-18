@@ -1,7 +1,6 @@
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import AbstractUser, User, PermissionsMixin
-from django.core.validators import EmailValidator
 from django.db import models
 from django.utils import timezone
 
@@ -37,17 +36,18 @@ class CustomUserManager(BaseUserManager):
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     USERNAME_MAX_LENGTH = 40
-    USERNAME_MIN_LENGTH = 4
+    USERNAME_MIN_LENGTH = 3
+    EMAIL_MAX_LENGTH = 254
     FIRST_NAME_MAX_LENGTH = 40
     LAST_NAME_MAX_LENGTH = 40
     DESCRIPTION_MAX_LENGTH = 400
     MAX_LENGTH_RESIDENCY = 40
 
-    email = models.EmailField(unique=True, validators=(EmailValidator,))  # == username
+    email = models.CharField(unique=True, max_length=EMAIL_MAX_LENGTH,)
     USERNAME_FIELD = "email"
     username = models.CharField(max_length=USERNAME_MAX_LENGTH, unique=True)
 
-    profile_image = models.ImageField(null=True, blank=True, upload_to='images')
+    profile_image = models.FileField(null=True, blank=True, upload_to='images')
     first_name = models.CharField(max_length=FIRST_NAME_MAX_LENGTH, null=True, blank=True)
     last_name = models.CharField(max_length=LAST_NAME_MAX_LENGTH, null=True, blank=True)
     description = models.TextField(max_length=DESCRIPTION_MAX_LENGTH, null=True, blank=True)

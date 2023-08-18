@@ -15,7 +15,6 @@ def index(request):
         'login_or_profile': login_or_profile,
         'register_or_exit': register_or_exit,
     }
-
     return render(request, 'common/index.html', context)
 
 

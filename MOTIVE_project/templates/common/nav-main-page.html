@@ -1,217 +1,313 @@
 {% block nav-main-page %}
 
-{% load static %}
-{% load widget_tweaks %}
-{#{% include 'delete-profile.html' %}#}
+    {% load static %}
+    {% load widget_tweaks %}
+    {#{% include 'delete-profile.html' %}#}
 
-<!DOCTYPE html>
-<html lang="zxx">
+    <!DOCTYPE html>
+    <html lang="zxx">
 
-<head>
-    <title>Arable Agriculture Category Bootstrap responsive Web Template | Home :: w3layouts</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="utf-8">
-    <meta name="keywords" content="Arable a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-    <script>
-        addEventListener("load", function() {
-            setTimeout(hideURLbar, 0);
-        }, false);
+    <head>
+        <title>Arable Agriculture Category Bootstrap responsive Web Template | Home :: w3layouts</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8">
+        <meta name="keywords" content="Arable a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design"/>
+        <script>
+            addEventListener("load", function () {
+                setTimeout(hideURLbar, 0);
+            }, false);
 
-        function hideURLbar() {
-            window.scrollTo(0, 1);
-        }
-    </script>
-    <link href="{% static 'css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="{% static 'css/component.css' %}" type="text/css" media="all">
-    <link href="{% static 'css/style.css' %}" rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="{% static 'css/owl.theme.css' %}" type="text/css" media="all">
-    <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}" type="text/css" media="screen" property="" />
-    <link href="{% static 'css/minimal-slider.css' %}" rel='stylesheet' type='text/css' />
-    <link href="{% static 'css/fontawesome-all.css' %}" rel="stylesheet">
-    <link href="//fonts.googleapis.com/css?family=Josefin+Sans:100,100i,300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
-    <link href="//fonts.googleapis.com/css?family=BenchNine:300,400,700" rel="stylesheet">
-</head>
+            function hideURLbar() {
+                window.scrollTo(0, 1);
+            }
+        </script>
+        <link href="{% static 'css/bootstrap.css' %}" rel='stylesheet' type='text/css'/>
+        <link rel="stylesheet" href="{% static 'css/component.css' %}" type="text/css" media="all">
+        <link href="{% static 'css/style.css' %}" rel='stylesheet' type='text/css'/>
+        <link rel="stylesheet" href="{% static 'css/owl.theme.css' %}" type="text/css" media="all">
+        <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}" type="text/css" media="screen" property=""/>
+        <link href="{% static 'css/minimal-slider.css' %}" rel='stylesheet' type='text/css'/>
+        <link href="{% static 'css/fontawesome-all.css' %}" rel="stylesheet">
+        <link href="//fonts.googleapis.com/css?family=Josefin+Sans:100,100i,300,300i,400,400i,600,600i,700,700i"
+              rel="stylesheet">
+        <link href="//fonts.googleapis.com/css?family=BenchNine:300,400,700" rel="stylesheet">
+    </head>
 
     {# NAVIGATION #}
     <div class="header-top-w3layouts-agile">
-{#        <div class="container-fluid">#}
-{#            <div class="row" style="height: 0px">#}
-{#                <div class="col-md-3 top-social-icons text-center" style="border-right: 0px solid #ddd;">#}
-{#                    <ul id="top-left-nav" class="social-icons">#}
-{#                            <li class="mr-1"><a href="#"><span class="fab fa-facebook-f"></span></a></li>#}
-{#                            <li class="mx-1"><a href="#"><span class="fab fa-twitter"></span></a></li>#}
-{#                            <li class="mx-1"><a href="#"><span class="fab fa-google-plus-g"></span></a></li>#}
-{#                            <li class="mx-1"><a href="#"><span class="fab fa-linkedin-in"></span></a></li>#}
-{#                        <h1>MOTIVE</h1>#}
-{#                    </ul>#}
-{#                </div>#}
-{#                <div class="col-md-6 logo text-center">#}
-{#                    <h1>#}
-{#                        <a id="center-nav" class="navbar-brand" href="{% url 'index' %}"></a>#}
-{#                    </h1>#}
-{#                </div>#}
-{##}
-{#                <div id="top-right-nav-container" class="col-md-3 login-right-im text-center">#}
-{#                #}
-{#                    {% if request.user.is_authenticated %}#}
-{#                        <a class="request text-uppercase top-right-nav-btns" href="{% url 'profile' request.user.id %}" data-toggle="moda" data-target="#exampleModalCenter">Профил</a>#}
-{#                        <a class="request text-uppercase top-right-nav-btns" href="{% url 'user logout' %}" data-toggle="moda" data-target="#exampleModalCenter2">Изход</a>#}
-{##}
-{#                    {% else %}#}
-{#                        <a class="request text-uppercase top-right-nav-btns" href="{% url 'user login' %}" data-toggle="moda" data-target="#exampleModalCenter">Вход</a>#}
-{#                        <a class="request text-uppercase top-right-nav-btns" href="{% url 'user register' %}" data-toggle="moda" data-target="#exampleModalCenter2">Регистрация</a>#}
-{##}
-{#                    {% endif %}#}
-{##}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
+        {#        <div class="container-fluid">#}
+        {#            <div class="row" style="height: 0px">#}
+        {#                <div class="col-md-3 top-social-icons text-center" style="border-right: 0px solid #ddd;">#}
+        {#                    <ul id="top-left-nav" class="social-icons">#}
+        {#                            <li class="mr-1"><a href="#"><span class="fab fa-facebook-f"></span></a></li>#}
+        {#                            <li class="mx-1"><a href="#"><span class="fab fa-twitter"></span></a></li>#}
+        {#                            <li class="mx-1"><a href="#"><span class="fab fa-google-plus-g"></span></a></li>#}
+        {#                            <li class="mx-1"><a href="#"><span class="fab fa-linkedin-in"></span></a></li>#}
+        {#                        <h1>MOTIVE</h1>#}
+        {#                    </ul>#}
+        {#                </div>#}
+        {#                <div class="col-md-6 logo text-center">#}
+        {#                    <h1>#}
+        {#                        <a id="center-nav" class="navbar-brand" href="{% url 'index' %}"></a>#}
+        {#                    </h1>#}
+        {#                </div>#}
+        {##}
+        {#                <div id="top-right-nav-container" class="col-md-3 login-right-im text-center">#}
+        {#                #}
+        {#                    {% if request.user.is_authenticated %}#}
+        {#                        <a class="request text-uppercase top-right-nav-btns" href="{% url 'profile' request.user.id %}" data-toggle="moda" data-target="#exampleModalCenter">Профил</a>#}
+        {#                        <a class="request text-uppercase top-right-nav-btns" href="{% url 'user logout' %}" data-toggle="moda" data-target="#exampleModalCenter2">Изход</a>#}
+        {##}
+        {#                    {% else %}#}
+        {#                        <a class="request text-uppercase top-right-nav-btns" href="{% url 'user login' %}" data-toggle="moda" data-target="#exampleModalCenter">Вход</a>#}
+        {#                        <a class="request text-uppercase top-right-nav-btns" href="{% url 'user register' %}" data-toggle="moda" data-target="#exampleModalCenter2">Регистрация</a>#}
+        {##}
+        {#                    {% endif %}#}
+        {##}
+        {#                </div>#}
+        {#            </div>#}
+        {#        </div>#}
 
 
         <style>
-                    .top-right-nav-btns{
-                        color: black !important;
-                        border-left: 0 solid #ddd !important;
-                        margin-top: auto;
-                        margin-bottom: auto;
-                    }
-                    #top-right-nav-container{
-                        margin-top: auto;
-                        margin-bottom: auto;
-                    }
-                    #logo-nav{
-                        margin-right: 5rem;
-                        text-decoration: none;
-                        color: black;
-                    }
-                    #navigation{
-                        margin-left: -5rem;
-                        {#margin-right: 5rem;#}
-                    }
-                    .header-bg{
-                        padding: 0.9em;
-                    }
-                    #top-right-nav-container{
-                        margin-right: -240px;
-                    }
-                    #navbarSupportedContent{
-                            margin-left: 8rem;
-                    }
-                    #top-right-nav-container{
-                        display: flex;
-                    }
-                    #profile-dropdown{
-                        list-style: none;
-                    }
-                    #navbarDropdown{
-                            padding: 0 20px;
-                    }
-                    #middle-navbar{
-                        margin-left: 8rem;
-                    }
+            .top-right-nav-btns {
+                color: black !important;
+                border-left: 0 solid #ddd !important;
+                margin-top: auto;
+                margin-bottom: auto;
+            }
+
+            #top-right-nav-container {
+                margin-top: auto;
+                margin-bottom: auto;
+            }
+
+            #logo-nav {
+                margin-right: 5rem;
+                text-decoration: none;
+                color: black;
+                letter-spacing: 5px !important;
+            }
+
+            #navigation {
+                margin-left: -5rem;
+            {#margin-right: 5rem;#}
+            }
+
+            .header-bg {
+                padding: 0.9em;
+            }
+
+            #top-right-nav-container {
+                margin-right: -240px;
+            }
+
+            #navbarSupportedContent {
+                margin-left: 8rem;
+            }
+
+            #top-right-nav-container {
+                display: flex;
+            }
+
+            #profile-dropdown {
+                list-style: none;
+                margin-top: 0.8rem;
+                margin-right: 1rem;
+            }
+
+            #navbarDropdown {
+                padding: 0 20px;
+            }
+
+            #middle-navbar {
+                margin-left: 8rem;
+            }
+
+            .avatar {
+                position: relative;
+                display: inline-block;
+                border-radius: 50%;
+                border: 2px solid var(--color-main);
+            }
+
+            .avatar img {
+                display: block;
+                border-radius: 50%;
+                object-fit: cover;
+                object-position: center;
+            }
+
+            .avatar::after {
+                content: "";
+                display: block;
+                position: absolute;
+                background-color: var(--color-gray);
+                z-index: 111;
+                border-radius: 50%;
+                border: 0.3rem solid var(--color-dark);
+            }
+
+            .avatar.active::after {
+                background-color: var(--color-success);
+            }
+
+            .avatar.avatar--small img {
+                width: 2.8rem;
+                height: 2.8rem;
+            }
+
+            .avatar.avatar--small:after {
+                width: 0.7rem;
+                height: 0.7rem;
+                bottom: 0px;
+                right: -6px;
+            }
+
+            .avatar.avatar--medium img {
+                width: 3.6rem;
+                height: 3.6rem;
+                border-radius: 50%;
+            }
+
+            .avatar.avatar--medium:after {
+                width: 0.7rem;
+                height: 0.7rem;
+                bottom: 0px;
+                right: -6px;
+            }
+
+            .avatar.avatar--large img {
+                display: block;
+                width: 8rem;
+                height: 8rem;
+                border-radius: 50%;
+            }
+
+            .avatar.avatar--large:after {
+                width: 1rem;
+                height: 1rem;
+                bottom: 2px;
+                right: 3.5px;
+            }
 
 
-                </style>
+        </style>
 
         {#  NAVIGATION #}
         <div class="header-bg" style="background: #c4a54a">
-{#                        <h1>MOTIVE</h1>#}
+            {#                        <h1>MOTIVE</h1>#}
 
             <div class="container">
 
                 <header>
 
                     <nav id="navigation" class="navbar navbar-expand-lg navbar-light">
-                        <button class="navbar-toggler navbar-toggler-right mx-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-               </button>
-                    <a id="logo-nav" href="{% url 'index' %}"><h1>MOTIVE</h1></a>
-
-
+                        <button class="navbar-toggler navbar-toggler-right mx-auto" type="button" data-toggle="collapse"
+                                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <a id="logo-nav" href="{% url 'index' %}"><h1>MOTIVE</h1></a>
 
 
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul id="middle-navbar" class="navbar-nav mr-lg-auto text-left">
                                 <li class="nav-item active">
                                     <a class="nav-link" href="{% url 'index' %}">Начало
-                                    <span class="sr-only">(current)</span>
-                                </a>
+                                        <span class="sr-only">(current)</span>
+                                    </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{% url 'forum show all' %}">Форуми</a>
                                 </li>
 
-{#                                <li class="nav-item dropdown">#}
-{#                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
-{#                                    Профил#}
-{#                                    <i class="fas fa-angle-down"></i>#}
-{#                                </a>#}
-{#                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">#}
-{#                                        <a class="dropdown-item" href="services.html">Services</a>#}
-{#                                        <a class="dropdown-item" href="services.html" title="">Services 1</a>#}
-{##}
-{#                                        <a class="dropdown-item" href="single.html" title="">Single Page</a>#}
-{#                                    </div>#}
-{#                                </li>#}
+                                {#                                <li class="nav-item dropdown">#}
+                                {#                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
+                                {#                                    Профил#}
+                                {#                                    <i class="fas fa-angle-down"></i>#}
+                                {#                                </a>#}
+                                {#                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">#}
+                                {#                                        <a class="dropdown-item" href="services.html">Services</a>#}
+                                {#                                        <a class="dropdown-item" href="services.html" title="">Services 1</a>#}
+                                {##}
+                                {#                                        <a class="dropdown-item" href="single.html" title="">Single Page</a>#}
+                                {#                                    </div>#}
+                                {#                                </li>#}
 
                                 <li class="nav-item">
                                     <a class="nav-link" href="{% url 'forum rules' %}">Правила</a>
                                 </li>
-{#                                <li class="nav-item">#}
-{#                                    <a class="nav-link" href="blog.html">Блог</a>#}
-{#                                </li>#}
-{#                                <li class="nav-item">#}
-{#                                        <a class="nav-link" href="contact.html">Контакти</a>#}
-{#                                    <a class="nav-link" href="contact.html">{{ request.user }}</a>#}
-{#                                </li>#}
+                                {#                                <li class="nav-item">#}
+                                {#                                    <a class="nav-link" href="blog.html">Блог</a>#}
+                                {#                                </li>#}
+                                {#                                <li class="nav-item">#}
+                                {#                                        <a class="nav-link" href="contact.html">Контакти</a>#}
+                                {#                                    <a class="nav-link" href="contact.html">{{ request.user }}</a>#}
+                                {#                                </li>#}
 
                             </ul>
-{#                            <form action="#" method="post" class="form-inline my-2 my-lg-0 header-search">#}
-{#                                <input class="form-control" type="search" placeholder="Search here..." name="Search" required="">#}
-{#                                <button class="btn btn1 my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>#}
-{#                            </form>#}
+                            {#                            <form action="#" method="post" class="form-inline my-2 my-lg-0 header-search">#}
+                            {#                                <input class="form-control" type="search" placeholder="Search here..." name="Search" required="">#}
+                            {#                                <button class="btn btn1 my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>#}
+                            {#                            </form>#}
 
                         </div>
-                            <div id="top-right-nav-container" class="col-md-3 login-right-im text-center">
+                        <div id="top-right-nav-container" class="col-md-3 login-right-im text-center">
 
-                    {% if request.user.is_authenticated %}
-{#                        <a class="request text-uppercase top-right-nav-btns" href="{% url 'user logout' %}" data-toggle="moda" data-target="#exampleModalCenter2">Изход</a>#}
+                            {% if request.user.is_authenticated %}
+                                {#                        <a class="request text-uppercase top-right-nav-btns" href="{% url 'user logout' %}" data-toggle="moda" data-target="#exampleModalCenter2">Изход</a>#}
 
 
 
-                              <li id="profile-dropdown" class="nav-ite dropdown">
+                                <li id="profile-dropdown" class="nav-ite dropdown">
                                     <a class="nav-linн dropdown-toggle requesеt text-uppercase top-right-nav-btns"
                                        href="{% url 'profile' request.user.id %}"
                                        id="navbarDropdown" data-target="#exampleModalCenter" role="button"
                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Профил
-                                    <i class="fas fa-angle-down"></i>
-                                </a>
+                                        Профил
+                                        <i class="fas fa-angle-down"></i>
+                                    </a>
 
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="{% url 'profile' request.user.id %}">Прегред</a>
-                                        <a class="dropdown-item" href="{% url 'profile show forums' request.user.id %}">Моите форуми</a>
+                                        <a class="dropdown-item" href="{% url 'profile show forums' request.user.id %}">Моите
+                                            форуми</a>
                                         <a class="dropdown-item" href="{% url 'forum create' %}">Създаване на форум</a>
-                                        <a class="dropdown-item" href="{% url 'profile edit' request.user.id %}" title="">Настройки</a>
-{#	                                    <a href="#myModal" class="trigger-btn dropdown-item" data-toggle="modal">Изтриване на профила</a>#}
+                                        <a class="dropdown-item" href="{% url 'profile edit' request.user.id %}"
+                                           title="">Настройки</a>
+                                        {#	                                    <a href="#myModal" class="trigger-btn dropdown-item" data-toggle="modal">Изтриване на профила</a>#}
 
-                                        <a class="dropdown-item" href="{% url 'user delete' request.user.id %}" title="">Изтриване на профила</a>
+                                        <a class="dropdown-item" href="{% url 'user delete' request.user.id %}"
+                                           title="">Изтриване на профила</a>
 
                                         <a class="dropdown-item" href="{% url 'user logout' %}" title="">Изход</a>
                                     </div>
                                 </li>
 
+                                <div class="avatar avatar--small">
+                                    <a href="{% url 'profile' request.user.id %}">
+                                        {% if request.user.profile_image %}
+                                            <img src="/media/{{ user.profile_image }}" alt=""/>
+                                        {% else %}
+                                            <img src="{% static 'images/default-annonymous-user-img.png' %}" alt=""/>
+                                        {% endif %}
+                                    </a>
+                                </div>
 
-{#                        <a class="request text-uppercase top-right-nav-btns" href="{% url 'profile' request.user.id %}" data-toggle="moda" data-target="#exampleModalCenter">Профил</a>#}
 
-                    {% else %}
-                        <a class="request text-uppercase top-right-nav-btns" href="{% url 'user register' %}" data-toggle="moda" data-target="#exampleModalCenter2">Регистрация</a>
-                        <a class="request text-uppercase top-right-nav-btns" href="{% url 'user login' %}" data-toggle="moda" data-target="#exampleModalCenter">Вход</a>
+                                {#                        <a class="request text-uppercase top-right-nav-btns" href="{% url 'profile' request.user.id %}" data-toggle="moda" data-target="#exampleModalCenter">Профил</a>#}
 
-                    {% endif %}
+                            {% else %}
+                                <a class="request text-uppercase top-right-nav-btns" href="{% url 'user register' %}"
+                                   data-toggle="moda" data-target="#exampleModalCenter2">Регистрация</a>
+                                <a class="request text-uppercase top-right-nav-btns" href="{% url 'user login' %}"
+                                   data-toggle="moda" data-target="#exampleModalCenter">Вход</a>
 
-                </div>
+                            {% endif %}
+
+                        </div>
 
                     </nav>
 

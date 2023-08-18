@@ -104,7 +104,7 @@
 
 {# --------------- #}
 
-img {
+#profile-main-img {
     --s: 10px; /* control the size */
     padding: var(--s);
     {#border: calc(2 * var(--s)) solid #0000;#}
@@ -128,10 +128,10 @@ img {
 
                   {% if profile.profile_image %}
                       <div id="card-profile-image-container">
-                        <img src="/media/{{ profile.profile_image }}" class="rounded-circl img">
+                        <img id="profile-main-img" src="/media/{{ profile.profile_image }}" class="rounded-circl img">
                       </div>
                   {% else %}
-                    <img src="{% static 'images/user-default.avif' %}" class="rounded-circle">
+                    <img id="profile-main-img" src="{% static 'images/user-default.avif' %}" class="rounded-circle">
 {#                      <img src="{% static 'images/user-default.avif' %}" class="rounded-circle"/>#}
 
                   {% endif %}

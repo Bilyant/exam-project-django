@@ -1,6 +1,12 @@
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.core.exceptions import ValidationError
+from django.core.validators import EmailValidator
+from django.utils.regex_helper import _lazy_re_compile
+from django.utils.translation import gettext_lazy as _
+import re
+from django.core.exceptions import ValidationError
+from django.core.validators import validate_email
 
 from MOTIVE_project.profiles.models import CustomUser
 
@@ -15,7 +21,7 @@ class RegisterUserForm(UserCreationForm):
         self.fields['email'].widget = forms.TextInput(attrs={
             'id': 'id_username',
             'name': 'username',
-            'type': 'email',
+            'type': 'text',
             'placeholder': 'example@gmail.com',
             'autofocus': '',
             'autocapitalize': 'none',
@@ -54,13 +60,26 @@ class RegisterUserForm(UserCreationForm):
             'placeholder': '••••••••',
         })
 
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+
+        if email.strip == "":
+            raise forms.ValidationError('Имейлът е задължителна')
+
+        try:
+            validate_email(email)
+        except ValidationError as e:
+            raise forms.ValidationError('Моля въведете валиден имейл')
+
+        return email
+
     def clean_username(self):
         username = self.cleaned_data.get('username')
 
-        if len(username) < 4:
-            raise forms.ValidationError('Username must be longer than 4 symbols')
+        if len(username) < 3:
+            raise forms.ValidationError('Потребителското име трябва да съдържа поне 3 символа')
         if username.strip == "":
-            raise forms.ValidationError('Username is required')
+            raise forms.ValidationError('Потребителското поле е задължително')
 
         return username
 
@@ -68,27 +87,30 @@ class RegisterUserForm(UserCreationForm):
         password1 = self.cleaned_data.get('password1')
 
         if len(password1) < 6:
-            raise forms.ValidationError('Password must be longer than 6 symbols')
+            raise forms.ValidationError('Паролата трябва да съдържа поне 4 символа')
         if password1.strip == "":
-            raise forms.ValidationError('Password is required')
+            raise forms.ValidationError('Паролата е задължителна')
         if password1.isdigit():
-            raise forms.ValidationError('Password cannot consist of only digits')
+            raise forms.ValidationError('Паролата е задължителна')
         if password1.isalpha():
-            raise forms.ValidationError('Password cannot consist of only letters')
+            raise forms.ValidationError('Паролата не може да съдържа само букви')
 
         return password1
 
     def clean_password2(self):
         password2 = self.cleaned_data.get('password2')
+        password1 = self.cleaned_data.get('password1')
 
         if len(password2) < 6:
-            raise forms.ValidationError('Password must be longer than 6 symbols')
+            raise forms.ValidationError('Паролата трябва да съдържа поне 4 символа')
         if password2.strip == "":
-            raise forms.ValidationError('Password is required')
+            raise forms.ValidationError('Паролата е задължителна')
         if password2.isdigit():
-            raise forms.ValidationError('Password cannot consist of only digits')
+            raise forms.ValidationError('Паролата е задължителна')
         if password2.isalpha():
-            raise forms.ValidationError('Password cannot consist of only letters')
+            raise forms.ValidationError('Паролата не може да съдържа само букви')
+        if password1 != password2:
+            raise forms.ValidationError('Двете пароли трябва да са идентични')
 
         return password2
 

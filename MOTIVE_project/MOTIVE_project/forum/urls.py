@@ -1,10 +1,10 @@
 from django.urls import path
 
-from MOTIVE_project.forum.views import ViewForumView, forum_create_page, forum_create, forum_details, forum_edit, \
+from MOTIVE_project.forum.views import forum_show_all, forum_create_page, forum_create, forum_details, forum_edit, \
     forum_delete, forum_rate, forum_show_specific_topic
 
 urlpatterns = (
-    path('', ViewForumView.as_view(), name='forum show all'),
+    path('', forum_show_all, name='forum show all'),
     path('topic/<int:pk>/', forum_show_specific_topic, name='forum show specific topic'),
     path('create-form/', forum_create_page, name='forum create page'),
     path('create/', forum_create, name='forum create'),

@@ -1,6 +1,5 @@
 import datetime
-
-from django import forms
+from django.contrib import messages
 from django.contrib.auth import login, get_user_model, authenticate
 from django.contrib.auth import views as auth_view
 from django.contrib.auth import mixins as auth_mixins
@@ -25,59 +24,27 @@ class RegisterUserView(views.CreateView):
         return result
 
 
-# def user_register(request):
-#     if request.method == 'GET':
-#         form = RegisterUserForm()
-#     else:
-#         form = RegisterUserForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('index')
-#
-#     context = {
-#         'form': form,
-#     }
-#     return render(request, 'common/register.html', context)
+def user_login(request):
+    if request.method == 'GET':
+        form = LoginProfileForm()
+    else:
+        form = LoginProfileForm(request.POST)
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(username=username, password=password)
 
-#
-class LoginUserView(auth_view.LoginView):
-    template_name = 'common/login.html'
-    form_class = LoginProfileForm
+        if user is not None:
+            if user.is_active:
+                login(request, user)
+                return redirect('index')
+        else:
+            messages.error(request, 'Невалиден имейл или парола')
+            return redirect('user login')
 
-
-# def login_user(request):
-#     if request.method == 'GET':
-#         form = LoginProfileForm()
-#     else:
-#         form = LoginProfileForm(request.POST)
-#         email = request.POST.get('email')
-#         password = request.POST.get('password')
-#
-#         try:
-#             user = CustomUser.objects.get(email=email, password=password)
-#         except:
-#             forms.ValidationError('Невалиден имейл или парола')
-#
-#         user = authenticate(request, email=email, password=password)
-#
-#         if user is not None:
-#             login(request, user)
-#             return redirect('index')
-#     context = {
-#         'form': form,
-#     }
-#     return render(request, 'common/login.html', context)
-
-
-#
-#
-# def login_user(request):
-#     if request.method == 'GET':
-#         form = LoginProfileForm()
-#     else:
-#         form = LoginProfileForm(request.POST)
-#         if form.is_valid():
-#             form.save()
+    context = {
+        'form': form,
+    }
+    return render(request, 'common/login.html', context)
 
 
 class LogoutUserView(auth_mixins.LoginRequiredMixin, auth_view.LogoutView):
